@@ -4,7 +4,7 @@
    \usepackage[
    left = 2.5cm ,
    right = 3.5cm,
-   bottom = 2cm,
+   bottom = 3cm,
    ]{geometry}
 \usepackage{titlesec}
 
@@ -14,6 +14,9 @@
 \linespread{1.3}
 \setlength{\skip\footins}{2cm}
 \setlength{\footnotesep}{0.3cm}
+
+\setcounter{secnumdepth}{4}%bound for subsections
+\setcounter{tocdepth}{4}
 
 \titleformat{\chapter}[display]
 	{\normalfont\Huge\bfseries\centering}
@@ -58,7 +61,7 @@
 			  
 			  لازم به ذکر است ، کیف پول الکترونیکی که به منظور نگهداری بیت کوین‌ها
 			  \LTRfootnote{Bitcoin}
-			  و یا پول الکترونیکی می‌باشد مورد بحث نمی‌باشد.
+			  و یا پول الکترونیکی می‌باشد مورد بحث نخواهد بود.
 			  
 				\section{معرفی سرویس‌های برجسته‌ی کیف پول الکترونیکی }
 		
@@ -85,19 +88,116 @@
 														{\large \lr{Wallet}} 
 		که بصورت پیش‌فرض بر روی دستگاه‌های
 								{\large \lr{iPhone 6}} 
-								و مدل‌های بالاتر نصب شده است استفاده می‌شود. 
+								و مدل‌های بالاتر نصب شده است و 
+																{\large \lr{Apple Watch}} 
+							،	 استفاده می‌شود. 
 		\begin{figure}[h]
 			\centering
 			\includegraphics[height=1.5cm]{images/apple-wallet-image}
 			\caption{آیکون نرم‌افزار {\footnotesize \lr{Wallet}} }
 			\label{wallet-image}
 		\end{figure}
+	\subsection{روش‌های پرداخت سرویس {\large \lr{Apple Pay}} }
+	این سرویس برای پرداخت سه راه را به کاربران ارائه می‌دهد.
+	\begin{itemize}
+		\item[-] پرداخت درون فروشگاه 
+		‌\item[-] پرداخت درون نرم‌افزار
+		\item[-]پرداخت درون وب‌سایت
+	\end{itemize}
+
+	\subsection{مراحل کار با سرویس {\large \lr{Apple Pay}} }
+	برای استفاده از این سرویس در ابتدا باید کارت بانکی که به منظور انجام خرید‌ها استفاده می‌شود را تعریف کنیم. لازم به ذکر است که کارت مورد نظر باید جزء کارت‌های پشتیبانی شده توسط
+									{\large \lr{Apple Pay}} 
+									 باشد. در شکل \ref{applepayenvironment} محیط نرم‌افزار برای اضافه کردن نشان داده شد است. 
+									 
+									 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=7cm]{images/iphone6-ios9-wallet-applepay-add}
+		\caption{محیط نرم‌افزار}
+		\label{applepayenvironment}
+	\end{figure}
+با زدن ضرب‌در بالای صفحه وارد مراحل اضافه کردن کارت بانکی خواهید شد و پس از احراز هویت و تایید آن توسط بانک ، 
+								{\large \lr{Apple Pay}}  
+								برای انجام خرید‌ها آماده است. 
+								
+								در ادامه مراحل پرداخت برای سه روش ارائه شده توضیح داده خواهد شد. پرداخت‌های فوق هم از طریق گوشی‌های هوشمند 
+																{\large \lr{iPhone }} 
+																و هم از طریق 
+															{\large \lr{Apple Watch}} 
+																								امکان‌پذیر است. 
+											
+								
+	\subsubsection{پرداخت درون فروشگاه} 
+	کاربر پس از اتمام خرید در فروشگاه، می‌تواند از این روش پرداخت برای تکمیل خرید خود اقدام کند. پس از  ارائه‌ی صورت حساب توسط صندوق دار، کاربر گوشی و یا 
+														{\large \lr{Apple Watch}} 
+	 خود را نزدیک به میدان 
+									{\large \lr{NFC}}
+ ترمینال می‌کند، و سپس اجازه‌ی پرداخت را با استفاده از اثر انگشت خود و یا کلمه‌ی عبور می‌دهد.
+ 		بر روی  									{\large \lr{Apple Watch}}									 									 									کاربر لبه‌ی انتهایی آن را دو بار لمس می‌کند.
+ 
+ ترمینال‌های مجاز برای استفاده از این روش پرداخت دارای نشان شکل     
+ \ref{applepaysymbol}
+می‌باشند.
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[height=2cm]{images/applepaysymbol}
+ 	\caption{نماد 	{\footnotesize \lr{NFC Apple Pay}}}
+ 	\label{applepaysymbol}
+ \end{figure}
+
+ ترمینال‌های مورد پشتیبانی همانند شکل 
+ \ref{apple-pay-whole-foods}
+ می‌باشند، که دارای نماد 
+ 									{\large \lr{Apple Pay}}
+ 									می‌باشند.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=5cm]{images/apple-pay-whole-foods-100526329-large}
+		\caption{ترمینال پشتیبانی کننده از {\footnotesize \lr{Apple Pay}}}
+		\label{apple-pay-whole-foods}
+	\end{figure}
+	
+	\subsubsection{ پرداخت درون نرم‌افزار   }
+	کاربر با استفاده از 
+		 									{\large \lr{iPhone}}،
+		 									 									{\large \lr{Watch}}،
+		 	 									{\large \lr{iPad}} ،
+		 	 									می‌تواند از 
+		 	 									 									{\large \lr{Apple Pay}}
+		 	 									 									به عنوان روش پرداخت برای پرداخت‌های درون نرم‌افزار استفاده کند. برای انجام پرداخت از این راه :
+	\begin{enumerate}
+		\item لمس دکمه
+			 									{\large \lr{Apple Pay}}
+			 									  و یا لمس
+			 									{\large \lr{Buy with Apple Pay}}.
+			 									یا انتخاب
+			 									 									{\large \lr{Apple Pay}}
+به عنوان روش پرداخت در زمان بازبینی نهایی خرید.	(شکل \ref{buttons})
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=2cm]{images/buttons}
+	\caption{آیکون‌های {\footnotesize \lr{Apple Pay}} ‌}
+	\label{buttons}
+\end{figure}
+
+
+	\item بازبینی اطلاعات صورت حساب ، اطلاعات تماس و نحوه‌ی ارسال خرید، برای حصول اطمینان از صحت اطلاعات.
+	اگر کاربر مایل به پرداخت با کارت متفاوتی غیر از کارت پیش فرض می‌باشد، علامت فلش باید لمس شود.
+	\item اگر نیاز به وارد کردن اطلاعات تماس ، صورت حساب و یا نحوه‌ی ارسال محموله می‌باشد، کاربر اطلاعات را وارد می‌کند.
+	 									{\large \lr{Apple Pay}} 
+	 									این اطلاعات را ذخیره می‌کند تا نیازی به وارد کردن دوباره‌ی آن ها نباشد.
+	\item بر روی 
+	 									{\large \lr{iPhone}}
+	 									و 
+	 									 {\large \lr{iPad}}
+	 								کاربر با استفاده از اثر انگشت اجازه‌ی پرداخت را می‌دهد.
+	 								بر روی  									{\large \lr{Apple Watch}}									 									 									کاربر لبه‌ی انتهایی آن را دو بار لمس می‌کند.
+	\end{enumerate}
 		
 		
-		
-		
-		
-		
+	\subsubsection{ پرداخت درون  وب سایت}
+	
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		
@@ -117,7 +217,9 @@
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\chapter{بررسی نحوه‌ی کار و مقایسه‌ی  سرویس‌های   {\Large\lr{Apple Pay} }  و   {\Large\lr{Android Pay} }}\label{comparison}
 		
-		\chapter{طراحی و پیاده‌سازی نرم‌افزار پرداخت}\label{implementation}
+		\chapter{طراحی و پیاده‌سازی نرم‌افزار پرداخت سمت سرور}\label{serverimplementation}
+		
+		\chapter{طراحی و پیاده‌سازی نرم‌افزار پرداخت سمت کلاینت}\label{clientimplementation}
 		
 	
 	
