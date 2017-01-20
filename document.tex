@@ -25,7 +25,10 @@
 \setlatintextfont{Georgia}
 
 \begin{document}
- 
+ \newcounter{MyC}
+\newcommand\addHarfi{\harfi{MyC}\addtocounter{MyC}{1}\ }
+\setcounter{MyC}{1}
+\pagenumbering{harfi}
  \section*{چکیده}
 \Large \noindent
 با توجه به مشکلات امنیتی موجود در زمینه‌ی پرداخت الکترونیکی ، استفاده از راه‌حل‌ کیف پول الکترونیکی به منظور رفع این مشکلات حائز اهمیت است. به سبب اینکه پرداخت‌های امروزی ، اطلاعات کارت بانکی را در معرض خطر قرار می‌دهند، پنهان بودن اطلاعات پرداخت و امن‌تر کردن تراکنش‌ها به علاوه‌ی سهولت پرداخت ،از اهدف اصلی کیف پول ‌الکترونیکی می‌باشد.
@@ -46,7 +49,7 @@
 \textbf{کلید واژگان: } 
 {\large \lr	{Tokenisation}} ، {\large \lr {iBeacon}} 
 
-\pagenumbering{gobble}
+%\pagenumbering{gobble}
 {\let\cleardoublepage\clearpage 
 	\tableofcontents
 }
@@ -379,13 +382,6 @@
 	\item در صفحه‌ی لیست کالاها ، کاربر پرداخت در اینجا را می‌زند و وارد مراحل پرداخت می‌شود
 \end{enumerate}
 		   
-		   
-	
-		
-		
-		
-		
-		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		
 		\chapter{تکنولوژی {\Large\lr{Tokenisation}} و زیرساخت‌ها }\label{tokenisation}
