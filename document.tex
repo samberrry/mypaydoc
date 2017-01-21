@@ -438,9 +438,69 @@
  است و منطبق با نیازمندی‌های صنعت مالی برای پرداخت‌های الکترونیکی می‌باشد.
  
   \subsubsection{{\small \lr{NFC Controller}}}
+  {\small \lr{NFC Controller}}
+  پروتکل‌های مربوط به 
+   {\small \lr{NFC}}
+   را مدیریت می‌کند و ارتباط دهنده بین پردازنده‌ی نرم‌افزار 
+    					\LTRfootnote{Application Processor}
+  و 
+   {\small \lr{Secure Element}}
+   ، و همچنین ارتباط دهنده بین 
+    {\small \lr{Secure Element}}
+    و ترمینال
+     {\small \lr{POS}} 
+         					\LTRfootnote{Point-of Sale terminal}
+      می‌باشد.
+      
+        \subsubsection{{\small \lr{Wallet}}}
+        از
+           {\small \lr{wallet}}
+           برای اضافه کردن و مدیریت کارت‌های اعتباری، بدهی و جایزه و همچنین انجام پرداخت‌ها از راه سرویس 
+              {\small \lr{Apple Pay}}
+              استفاده می‌شود.
+              کاربران می‌توانند اطلاعات مربوط به کارت خود ، صادر کننده‌ی کارت ، تراکنش‌های انجام شده‌ی اخیر و سیاست‌های حریم‌شخصی 
+         					\LTRfootnote{privacy policy}              
+              بانک خود را مشاهده کنند.
  
- 
- 
+         \subsubsection{{\small \lr{Secure Enclave}}}
+    بر رو
+               {\small \lr{iPhone}} و
+                          {\small \lr{iPad}}
+                          ، 
+                                     {\small \lr{Secure Enclave}}
+    فرآیند احراز هویت کاربر را برعهده دارد ، و قادر می‌سازد که یک تراکنش صورت پذیرد و داده‌ی اثرانگشت مورد استفاده برای تکنولوژی 
+               {\small \lr{TouchID}}
+               را فراهم می‌کند. 
+               
+   بر روی 
+              {\small \lr{Apple Watch }}
+              ، دستگاه ممکن است نیاز به باز کردن قفل داشته باشد، و کاربر باید کنار انتهای آن‌را دوبار کلیک کند. این عمل دوبار کلیک کردن تشخیص داده می‌شود و به 
+                         {\small \lr{Secure Element}}
+                      مستقیما   ارسال می‌شود ، بدون اینکه از پردازنده‌ی نرم‌افزار عبور کند.
+                      
+      \subsubsection{سرورهای{\small \lr{Apple Pay }}} 
+      سرورهای 
+   {\small \lr{Apple Pay}}
+   وضعیت کارت‌های اعتباری و بدهی در 
+   {\small \lr{Wallet}}
+   و 
+   {\small \lr{Device Account Number}}
+   در 
+   {\small \lr{Secure Elemetn}}
+   را مدیریت می‌کنند. این سرورها هم با دستگاه‌‌های کاربران و هم با سرورهای شبکه‌ی پرداخت ارتباط برقرار می‌کنند.
+   سرور‌های 
+   {\small \lr{Apple Pay}}
+   همچنین مسئول رمزنگاری دوباره‌ی گواهی‌های پرداخت 
+         					\LTRfootnote{Payment Credentials}      
+         					برای پرداخت درون نرم‌افزار           
+   هستند. 
+               
+    \subsection{چگونه {\small \lr{Apple Pay }} از {\small \lr{Secure Element }} استفاده می‌کند }           
+          
+      
+               
+               
+               
  
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
