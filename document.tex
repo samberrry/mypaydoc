@@ -862,14 +862,75 @@
                 
    \subsection{پروتکل‌ها}
 		
+		پروتکل‌هایی به منظور ارتباط با 
+		{\normalsize \lr{‌Beacon}} ها
+		وجود دارد که معروف‌ترین آن‌ها 
+		{\normalsize \lr{‌iBeacon}} 
+		و
+		{\normalsize \lr{‌Eddystone}}                    
+		می‌باشند. در ادامه به توضیح این دو پروتکل پرداخته خواهد شد.  تمرکز بیشتر بر روی پروتکل 
+				{\normalsize \lr{‌iBeacon}} 
+				خواهد بود.
+	\subsubsection{{\small \lr{iBeacon }} }
+	پروتکل
+			{\normalsize \lr{‌iBeacon}} 
+اولین و پر استفاده‌ترین پروتکل ارتباطی حال حاضر است. این پروتکل توسط 
+		{\normalsize \lr{‌Apple}} 
+		توسعه یافته است و توسط 
+				{\normalsize \lr{‌iOS}} 
+نیز پشتیبانی می‌شود. اگر چه این پروتکل تحت دیگر پلتفورم‌ها و سیستم‌عامل‌ها کار می‌کند، اما بهترین عملکرد را با دستگاه‌های 
+		{\normalsize \lr{‌iPhone}} 
+		و 
+				{\normalsize \lr{‌iPad}} 
+				دارد. 				
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=1.5cm]{images/iBeacon}
+		\caption{{\small \lr{‌iBeacon icon}} }
+		\label{fig:ibeacon}
+	\end{figure}
+	
+	
 		
-		
-		
-		
-		
-		
-		
-		
+	\subsubsection{{\small \lr{Eddystone }} }	
+پروتکل 
+		{\normalsize \lr{‌Eddystone}} 
+ دارای فرمتی جدید و پروتکل ارتباطی باز است که توسط 
+ 		{\normalsize \lr{‌Google}} 
+ 		توسعه یافته است. 
+	
+		بیشتر عملکرد 
+				{\normalsize \lr{‌Eddystone}} 
+				مشابه 
+						{\normalsize \lr{‌iBeacon}} 
+						می‌باشد اما دارای قابلیت های توسعه یافته‌ی بیشتری می‌باشد. 
+						\begin{figure}[h]
+							\centering
+							\includegraphics[height=2.5cm]{images/eddystone2}
+							\caption{{\small \lr{‌Eddystone icon}} }
+							\label{fig:eddystone2}
+						\end{figure}
+			{\normalsize \lr{‌Eddystone}} 
+			دارای سه نوع مختلف است: 
+	\begin{itemize}
+		\item[-] 				{\normalsize \lr{‌Eddystone-UID}} 
+		\item[-] 				{\normalsize \lr{‌Eddystone-URL}} 
+		\item[-] 				{\normalsize \lr{‌Eddystone-TLM}} 
+	\end{itemize}
+	{\normalsize \lr{‌Eddystone-UID}} 
+	کارایی همانند 
+	 		{\normalsize \lr{‌iBeacon}} 
+	 		دارد : انتشار قطعه کدی به فواصل زمانی یکسان. 
+		{\normalsize \lr{‌Eddystone-URL}}
+		یک 
+			{\normalsize \lr{‌URL}} 
+			که توسط هرکسی با یک گوشی هوشمند(خواه نرم‌افزار شمارا نصب کرده باشند یا نه) قابل مشاهده است. 
+			{\normalsize \lr{Eddystone-TLM}}
+داده‌های مربوط به فاصله سنجی را انتشار می‌دهند .
+
+\subsection{ تکنولوژی{\normalsize \lr{‌iBeacon}} }
+
+
 		
 		
 	
