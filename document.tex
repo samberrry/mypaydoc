@@ -452,9 +452,6 @@
 پردازنده‌ی پرداخت 
 			 	\LTRfootnote{Peyment Processor}، 
 یک موجودیت به منظور فراهم کردن خدمات پردازش پرداخت‌ها برای بانک‌های پذیرنده و یا صادر‌کننده می‌باشد. 
-
-
-
 		
 \section{تاریخچه تکنولوژی{\large  \lr {Tokenisation}}}
 					در ماه مارس سال ۲۰۱۴ کنسرسیوم 
@@ -493,7 +490,9 @@
 {\normalsize  \lr {Token}} های 
 پرداخت ، مقادیری جایگزین برای مقدار واقعی 
 {\normalsize  \lr {PAN}}ها 
-در اکوسیستم پرداخت می‌باشند. در این فصل به چگونگی ساخت و ملزومات ساخت این 
+در اکوسیستم پرداخت می‌باشند. به این فرآیند 
+{\normalsize \lr{‌Tokenisation}}
+ گفته می‌شود. در این فصل به چگونگی ساخت و ملزومات ساخت این 
 {\normalsize  \lr {Token}}ها
 خواهیم پرداخت. 
 
@@ -563,9 +562,46 @@
 	\caption{تراکنش {\footnotesize  \lr {Token}} پرداخت}
 	\label{fig:fig2}
 \end{figure}
-
-			
-			
+\newpage
+\subsection{{\small \lr{Token Service Provider}}}
+		{\normalsize  \lr {Token Service Provider (TPS)}}ها 
+		موجودیت‌های درون اکوسیستم
+		{\normalsize  \lr {Tokenisation}}
+		هستند که موظف به فراهم کردن 
+		{\normalsize  \lr {Token}}های
+		پرداخت به درخواست‌دهنده‌های 
+		{\normalsize  \lr {Token}}
+		ثبت شده هستند. 
+ 
+ \subsubsection{{\normalsize \lr{‌Token Vault}}}
+			یک انبار برای نگهداری 
+			{\normalsize \lr{‌Token}}های
+			پرداخت که توسط اکوسیستم 
+			{\normalsize \lr{‌Tokenisation}}
+			پیاده‌سازی شده است. از این انبار اطلاعات برای مرتبط کردن 
+			{\normalsize \lr{‌Token}}‌های 
+			مربوطه به مقادیر 
+			{\normalsize \lr{‌PAN}}
+			نیز استفاده می‌شود. 
+			{\normalsize \lr{‌Token Vault}}
+			ممکن است مقادیر دیگری از درخواست دهنده‌ی 
+			{\normalsize \lr{‌Token}}
+			که در زمان ثبت تعیین می‌شود و ممکن است توسط 
+			{\normalsize \lr{‌TSP}}
+			به منظور اعمال محدودیت‌های دامنه‌ای و یا کنترل بر روی پردازش تراکنش‌ها انجام گیرد، را ذخیره کند.
+					
+	{\normalsize \lr{‌TSP}}ها 
+	مسئول بخش‌‌های مختلفی در این اکوسیستم به عنوان  یک موجودیت تأیید شده برای صدور 
+	{\normalsize \lr{‌Token}}های 
+	پرداخت می‌باشند. برخی از این مسؤلیت‌ها شامل‌:
+	\begin{itemize}
+		\item[-]
+		\item[-]
+		\item[-]
+		\item[-]
+		\item[-]
+	\end{itemize}
+					
 					
 					
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
