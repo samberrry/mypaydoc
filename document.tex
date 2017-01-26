@@ -1075,6 +1075,9 @@
                               صحبت خواهد شد. 
                               
    \section{خلاصه‌ی کلی}                
+  زبان برنامه‌نویسی به کار رفته در سمت سرور زبان
+  {\normalsize\lr{Java}}
+  می‌باشد.
   نحوه‌ی کار نرم‌افزار سمت سرور بدین شکل می‌باشد که ، در سمت سرور وب‌سرویس‌های پیاده‌سازی شده 
   آماده‌ی سرویس دهی به درخواست‌های کلاینت‌ها می‌باشند. وب‌سرویس‌ها توسط قالب‌کاری 
            {\normalsize \lr{‌servlet}} 
@@ -1088,6 +1091,12 @@
                         	\LTRfootnote{JavaScript Object Notation}       
         ، محتوای مناسب را به کلاینت‌ها تحویل می‌دهند. 
 		در بخش‌های به توضیح تکنولوژی‌های ذکر شده و نحوه‌ی پیاده‌سازی آن‌ها پرداخته خواهد شد.
+		
+		کلاس‌هایی در قالب 
+		{\normalsize\lr{Controller}}
+		برای دریافت و پردازش درخواست‌های کلاینت‌ها تعبیه شده ، و کلاس‌هایی در قالب
+		{\normalsize\lr{Model}}
+		به منظور ارتباط با پایگاه داده و عملیات جستجو در آن‌ را انجام می‌دهند. 
 		
 	\section{{\large\lr{Web Service}}}
 اگرچه کلمه‌ی 
@@ -1123,8 +1132,8 @@
 					ارسال می‌‌کند. 
 					\begin{figure}[h]
 						\centering
-						\includegraphics[height=2cm]{images/clientserver}
-						\caption{}
+						\includegraphics[height=3cm]{images/clientserver}
+						\caption{یک {\footnotesize\lr{Web Service}} و کلاینت}
 						\label{fig:clientserver}
 					\end{figure}
 یک 
@@ -1135,9 +1144,93 @@
 						{\normalsize\lr{Web Service}}
 						دیگر باشد. 					
 					
-		
-		
-		
+{\normalsize\lr{Web Service}}ها 
+در دو نوع متفاوت می‌باشند: 
+\begin{itemize}
+	\item[-] {\normalsize\lr{RESTful}}
+	\item[-]{\normalsize\lr{SOAP}}
+\end{itemize}
+{\normalsize\lr{Web Service}} های 
+بر پایه‌ی 
+{\normalsize\lr{SOAP}}
+    	\LTRfootnote{Simple Object Access Protocol}       
+از 
+{\normalsize\lr{XML}}
+به عنوان ساختار محتوای تبادلی استفاده می‌کنند، همچنین بیشتر برای طراحی‌های مستقل از پروتکل انتقال استفاده‌ می‌شوند. 
+{\normalsize\lr{Web Service}} های 
+بر پایه‌ی 
+{\normalsize\lr{RESTful}}
+              	\LTRfootnote{REpresentational State Transfer}       
+برای از میان بردن پیچیدگی‌های 
+{\normalsize\lr{Web Service}}
+بوجود آمده‌اند.
+{\normalsize\lr{REST}}
+توسط دکتر 
+{\normalsize\lr{Roy Fielding}}
+که موضوع رساله‌ی دکتری وی بود مطرح شد. 
+{\normalsize\lr{REST}}
+و 
+{\normalsize\lr{SOAP}}
+کاملا از هم متفاوت هستند. 
+{\normalsize\lr{SOAP}}
+یک پروتکل ارسال پیام است و در واقع نحوه‌ی ارسال پیام‌‌ها را بیان می‌کند که پیام‌ها متون 
+{\normalsize\lr{XML}}
+هستند، اما 
+{\normalsize\lr{REST}}
+یک شیوه‌ای از معماری نرم‌افزار برای سیستم‌های مافوق رسانه‌ای توزیعی 
+    	\LTRfootnote{distributed hypermedia system}       
+، سیستم‌هایی که در آن‌ها متون ، تصاویر گرافیکی، صدا و دیگر رسانه‌ها بر روی شبکه ذخیره می‌شوند ، که از راه 
+{\normalsize\lr{hyperlink}}
+قابل دسترسی هستند. 
+{\normalsize\lr{World Wide Web}}
+مثالی روشن از یک چنین سیستمی است. در این وب ، 
+{\normalsize\lr{HTTP}}
+هم پروتکل انتقال است و هم سیستم پیام‌دهی ، به این علت که درخواست‌ها 
+    	\LTRfootnote{Request}       
+و پاسخ‌های 
+    	\LTRfootnote{Response}       
+پیام‌های مدنظر هستند.
+
+مذیت بسیار حائز اهمیت 
+{\normalsize\lr{Web Service}} ها 
+مستقل از زبان برنامه‌نویسی
+    	\LTRfootnote{‌Language Neutral}       
+ هستند، بدین معنی که برای مثال در سمت سرور 
+{\normalsize\lr{Web Service}} ها 
+به زبان 
+{\normalsize\lr{Java}}
+نوشته‌‌شده‌اند اما می‌توان از طریق یک کلاینت که با استفاده از زبان 
+{\normalsize\lr{Perl}}
+برنامه‌نویسی شده با آن ارتباط برقرار کرد. 
+
+رابط‌های برنامه‌نویسی متفاوتی برای پیاده‌سازی 
+{\normalsize\lr{RESTful Web Service}} ها 
+در زبان 
+{\normalsize\lr{Java}}
+وجود دارد که عبارتند از : 
+
+\begin{itemize}
+	\item [-]{\normalsize\lr{HttpServlet}}
+	\item [-]{\normalsize\lr{JAX-RS}}
+	که دارای پیاده‌سازی‌های مختلف است.
+	\item [-]{\normalsize\lr{Restlet}}
+	که مشابه با 
+	{\normalsize\lr{JAX-RS}}
+	می‌باشد.
+	\item [-]{\normalsize\lr{JAX-WS}} 
+	که به ندرت مورد استفاده قرار می‌گیرد.
+\end{itemize}
+
+\cite{webserviceoreilly}
+
+در این پروژه از قالب‌کاری 
+{\normalsize\lr{Servlet}}
+برای پیاده‌سازی 
+{\normalsize\lr{Web Servicel}} ها 
+استفاده شده‌است.
+
+
+
 		
 		
 		
