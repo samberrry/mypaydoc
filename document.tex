@@ -1227,14 +1227,222 @@
 {\normalsize\lr{Servlet}}
 برای پیاده‌سازی 
 {\normalsize\lr{Web Servicel}} ها 
+و از 
+{\normalsize\lr{Apache Tomcat}}
+به عنوان سرور نرم‌افزار
+    	\LTRfootnote{‌Application Server}       
 استفاده شده‌است.
 
+\section{تشریح نحوه پیاده سازی}
+	\subsection{پکیج {\small\lr{Controllers}}}
+	در این پکیج 
+	    	\LTRfootnote{Package}
+،
+{\normalsize\lr{Servlet}} های 
+اصلی نرم‌افزار پیاده‌سازی شده‌اند. برای مثال کلاس‌هایی برای عملیات ورود کاربر، ثبت کاربر جدید، پیدا کردن محل حال حاضر کاربر بر اساس اطلاعات 
+{\normalsize\lr{Beacon}}
+و تأیید شماره‌ی کاربر توسط وب سرویس 
+{\normalsize\lr{SMS}}
+، که از کلاس
+{\normalsize\lr{HttpServlet}}
+ارث می‌برند، پیاده‌سازی شده است. 
 
+\subsubsection{کلاس{\small\lr{WhereIsBeacon}}}
+این 
+{\normalsize\lr{servlet}}
+ به منظور پیدا کردن مکان فعلی کاربر پیاده‌سازی شده است. نحوه‌ی استفاده از این کلاس بدین شکل است : زمانی که کاربر در یک فروشگاه حضور پیدا میکند، با استفاده از تکنولوژی 
+ {\normalsize\lr{iBeacon}}
+ حضور کاربر کشف می‌شود. سپس سه مقدار 
+ {\normalsize\lr{UUID}}
+ و 
+ {\normalsize\lr{Major}}
+ و 
+ {\normalsize\lr{Minor}}
+ از 
+ {\normalsize\lr{Beacon}}
+ گرفته می‌شود و برای تعیین محل فعلی کاربر به این وب‌سرویس درخواستی ارسال می‌شود. در فصل 
+ \ref{clientimplementation}
+ به توضیح این تکنولوژی و مقادیر مربوطه پرداخته شده‌است. 
+ 
+کد مربوط به این کلاس به شکل زیر می‌باشد: 
+\begin{latin}
+	\begin{verbatim}
+	@WebServlet("/getstore")
+	public class WhereIsBeacon extends HttpServlet {
+	protected void doPost(HttpServletRequest request, 
+	HttpServletResponse response) throws ServletException, 
+	IOException {
+	//set MIME type to JSON
+	response.setContentType("application/json");
+	ManageBeacon manageBeacon = new ManageBeacon((SessionFactory) 
+	getServletContext().getAttribute("sessionfactoryobj"));
+	String uuid = request.getParameter("uuid");
+	int major =  Integer.parseInt(request.getParameter("major"));
+	int minor = Integer.parseInt(request.getParameter("minor"));
+	
+	StoreEntity store = manageBeacon.getStore(uuid,major,minor);
+	//respond to client
+	if (store != null)
+		{
+	HttpSession session = request.getSession();
+	session.setAttribute("currentstore",store);
+	StoreResponse rsp = new StoreResponse(500,"store is 
+	detected",store.getIdstore(),store.getName());
+	Gson gson = new Gson();
+	String jsonString = gson.toJson(rsp,StoreResponse.class);
+	PrintWriter printWriter = response.getWriter();
+	printWriter.println(jsonString);
+		}
+	else {
+	StoreResponse storeResponse = new 
+	StoreResponse(510,"The store could not be detected",0,null);
+	Gson gson = new Gson();
+	String jsonString = gson.toJson(storeResponse,StoreResponse.class);
+	PrintWriter printWriter = response.getWriter();
+	printWriter.println(jsonString);
+		}
+		}
+	}
+	\end{verbatim}
+\end{latin}
+		
+\noindent		
+مرحله‌ی بعد از ارث‌بری کلاس
+{\normalsize\lr{HttpServlet}}
+پیاده‌سازی تابع
+{\normalsize\lr{doPost}}
+می‌باشد. درخواستی که از سمت کلاینت به سرور ارسال می‌شود، از متد 
+{\normalsize\lr{‌POS}}
+پروتکل 
+{\normalsize\lr{HTTP}}
+استفاده میکند. بنابراین برای در 
+{\normalsize\lr{servlet}}
+مورد نظر باید تابع 
+{\normalsize\lr{doPost}}
+پیاده‌سازی شود. 
 
+با استفاده از قطعه کد زیر، مشخص می‌شود که نوع محتوایی که این وب سرویس بر‌میگرداند از چه نوعی است:‌
+\begin{latin}
+\begin{verbatim}
+	response.setContentType("application/json");
+\end{verbatim}
+	
+\end{latin}
+تمامی پاسخ‌ها در این نرم‌افزار به فرمت
+{\normalsize\lr{JSON}}
+می‌باشند. 
+
+در قطعه کد زیر مقادیر ارسالی توسط کاربر که در به عنوان پارامتر‌های درخواست هستند گرفته می‌شوند:
+\begin{latin}
+	\begin{verbatim}
+String uuid = request.getParameter("uuid");
+int major =  Integer.parseInt(request.getParameter("major"));
+int minor = Integer.parseInt(request.getParameter("minor"));
+	\end{verbatim}
+	
+\end{latin}
+توسط قطعه کد زیر این مکان فعلی کاربر جستجو می‌شود : 
+\begin{latin}
+	\begin{verbatim}
+	StoreEntity store = manageBeacon.getStore(uuid,major,minor);
+	\end{verbatim}
+	
+\end{latin}
+
+توسط قطعه کد زیر مکان فعلی کاربر در جلسه‌ی ایجاد شده برای کاربر ذخیره می‌شود: 
+\begin{latin}
+	\begin{verbatim}
+HttpSession session = request.getSession();
+session.setAttribute("currentstore",store);
+	\end{verbatim}
+	
+\end{latin}
+برای تبدیل کردن مقادیر ارسالی به معادل فرمت 
+{\normalsize\lr{JSON}}
+‌آن‌ها، کلاسی معادل فیلد‌های ارسالی به شکل 
+{\normalsize\lr{Beans}}
+ باید ساخته شود. کلاس استفاده شده برای جواب به شکل زیر می‌باشد: 
+\begin{latin}
+	\begin{verbatim}
+	public class StoreResponse extends Response {
+	int storeid;
+	String storename;
+	
+	public StoreResponse(int resultcode, String metadata, int storeid, String storename) {
+	super(resultcode, metadata);
+	this.storeid = storeid;
+	this.storename = storename;
+	}
+	
+	public int getStoreid() {
+	return storeid;
+	}
+	
+	public String getStorename() {
+	return storename;
+	}
+	
+	public void setStoreid(int storeid) {
+	this.storeid = storeid;
+	}
+	
+	public void setStorename(String storename) {
+	this.storename = storename;
+	}
+	}
+	
+	\end{verbatim}
+	
+\end{latin}
+
+شیئی همانند کد زیر برای تبدیل آن به معادل 
+{\normalsize\lr{JSON}}
+ساخته می‌شود:
+\begin{latin}
+	\begin{verbatim}
+	StoreResponse rsp = new StoreResponse(500,"store is 
+	detected",store.getIdstore(),store.getName());
+	\end{verbatim}
+	
+\end{latin}
+	برای تبدیل شیء ساخته شده به معادل 
+	{\normalsize\lr{JSON}}
+	آن به شکل زیر عمل می‌شود : 
+	\begin{latin}
+		\begin{verbatim}
+Gson gson = new Gson();
+String jsonString = gson.toJson(rsp,StoreResponse.class);
+		\end{verbatim}
 		
+	\end{latin}
+برای ارسال رشته‌ی 
+			{\normalsize\lr{JSON}}
+			بدست‌آمده به کلاینت به شکل زیر عمل می‌شود: 
+\begin{latin}
+	\begin{verbatim}
+		PrintWriter printWriter = response.getWriter();
+	printWriter.println(jsonString);
+	\end{verbatim}
+	
+\end{latin}			
 		
+		قطعه کد زیر مربوط به زمانی است که مکان کاربر یافت نشده است:‌
+	\begin{latin}
+		\begin{verbatim}
+	StoreResponse storeResponse = new 
+	StoreResponse(510,"The store could not be detected",0,null);
+	Gson gson = new Gson();
+	String jsonString = gson.toJson(storeResponse,StoreResponse.class);
+	PrintWriter printWriter = response.getWriter();
+	printWriter.println(jsonString);
+		\end{verbatim}
 		
-		
+	\end{latin}		
+	
+	\section{{\large\lr{Hibernate}}}
+	
+	
+	
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\chapter{طراحی و پیاده‌سازی نرم‌افزار پرداخت سمت کلاینت}\label{clientimplementation}
