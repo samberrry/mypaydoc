@@ -1292,7 +1292,7 @@
 	String jsonString = gson.toJson(rsp,StoreResponse.class);
 	PrintWriter printWriter = response.getWriter();
 	printWriter.println(jsonString);
-		}
+	      	}
 	else {
 	StoreResponse storeResponse = new 
 	StoreResponse(510,"The store could not be detected",0,null);
@@ -1300,8 +1300,8 @@
 	String jsonString = gson.toJson(storeResponse,StoreResponse.class);
 	PrintWriter printWriter = response.getWriter();
 	printWriter.println(jsonString);
-		}
-		}
+	               	}
+	        }
 	}
 	\end{verbatim}
 \end{latin}
@@ -1372,24 +1372,24 @@ session.setAttribute("currentstore",store);
 	super(resultcode, metadata);
 	this.storeid = storeid;
 	this.storename = storename;
-	}
+        	}
 	
 	public int getStoreid() {
 	return storeid;
-	}
+        	}
 	
 	public String getStorename() {
 	return storename;
-	}
+        	}
 	
 	public void setStoreid(int storeid) {
 	this.storeid = storeid;
-	}
+        	}
 	
 	public void setStorename(String storename) {
 	this.storename = storename;
-	}
-	}
+         	}
+     	}
 	
 	\end{verbatim}
 	
@@ -1476,6 +1476,23 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
  هستند و یا از راه درگاه‌های 
                 {\normalsize \lr{‌USB}} 
  انرژی مورد نیاز خود را بدست می‌آورند. 
+
+در شکل زیر
+نمونه‌ای از دستگاه
+{\normalsize \lr{‌Beacon}} 
+تولید‌شده‌ی شرکت
+{\normalsize \lr{‌Estimote}} 
+نشان‌داده شده است.
+
+\begin{figure}[h]
+	\label{beacon}
+	\centering
+	\includegraphics[height=5cm]{images/estimote-beacons}
+	\caption{{\footnotesize \lr{‌Estimote Beacon}} }
+	\label{fig:estimote-beacons}
+\end{figure}
+
+
  
  \subsection{موارد استفاده}
  
@@ -1838,7 +1855,7 @@ func applicationWillTerminate(_ application: UIApplication)
 {\normalsize \lr{‌Storyboard}}
 یک نمایش بصری از رابط کاربری نرم‌افزار می‌باشد، که صفحات مختلف، محتوی و انتقال بین صفحات را نمایش می‌دهد. 
 برنامه‌نویس می‌تواند ازین راه تغییرات بر رابط کاربری نرم‌افزار را ایجاد کند و نتایج را همان لحظه مشاهده کند.  	
-\subsection{	{\small \lr{‌ViewController}}}
+\subsection{الگوی طراحی {\small \lr{‌MVC}}}
 همانند بسیاری از پلتفورم‌های نرم‌افزاری که از الگوی طراحی
 						       	\LTRfootnote{Design Pattern}
 {\normalsize \lr{‌MVC}}
@@ -1870,9 +1887,271 @@ func applicationWillTerminate(_ application: UIApplication)
   و 
   {\normalsize \lr{Model}} 
   عمل می‌کنند.
-  
-	
+  \begin{figure}[h]
+  	\centering
+  	\includegraphics[height=5cm]{images/MVCPattern-2}
+  	\caption{الگوی‌طراحی  {\normalsize \lr{MVC}} }
+  	\label{fig:mvcpattern-2}
+  \end{figure}
 
+\subsubsection{{\small \lr{‌UIView}}}
+عناصری که در رابط کاربری نمایش داده می‌شوند 
+  {\normalsize \lr{View}} 
+  نام دارند. 
+    {\normalsize \lr{View}} ها 
+    محتوا را به کاربر نمایش می‌دهند.
+      {\normalsize \lr{View}} 
+      ها رفتارهای مختلفی دارند از جمله‌ی نمایش خودشان و نشان‌دادن عکس‌العمل به کاربر. 
+در 
+  {\normalsize \lr{iOS}} 
+  تمام اشیاء 
+    {\normalsize \lr{View}} 
+    توسط نوع 
+      {\normalsize \lr{UIView}} 
+       و یا زیرکلاس‌های آن ساخته می‌شوند. از 
+         {\normalsize \lr{View}}  های
+   پرکاربرد می‌توان به 
+     {\normalsize \lr{UITextField}} 
+     اشاره کرد که اجازه‌ی تایپ یک متن در یک خط را به کاربر می‌دهد.
+
+\subsubsection{{\small \lr{‌UIView Controller}}}
+ در 
+   {\normalsize \lr{iOS}}
+  نقش 
+    {\normalsize \lr{Controller}} 
+    را 
+     {\normalsize \lr{ViewController}} ها
+     بر عهده دارند. همه‌ی اشیاء 
+       {\normalsize \lr{ViewController}}  
+در 
+  {\normalsize \lr{iOS}}
+  از نوع 
+      {\normalsize \lr{UIViewController}}
+  و زیر کلاس‌های آن هستند. 
+  برنامه‌نویس با پیاده‌سازی و شخصی‌سازی توابع 
+         {\normalsize \lr{ViewController}}  
+   می‌تواند رفتار 
+          {\normalsize \lr{ViewController}}  
+          را تغییر دهد.       
+    یک شیئ از کلاس
+    {\normalsize \lr{‌ViewController}}
+     به همراه یک سری از توابع به منظور مدیریت سلسله مراتب 
+     {\normalsize \lr{‌View}} ‌
+     آن می‌باشد. 
+     {\normalsize \lr{‌iOS}}
+     بصورت خودکار و در زمان مناسب که 
+     {\normalsize \lr{‌ViewController}} 
+     در وضعیت‌های متفاوت قرار می‌گیرد،
+     این توابع را فراخوانی می‌کند.  
+     این مسأله که چه زمانی این توابع فراخوانی می‌شوند برای تشخیص رفتار 
+     {\normalsize \lr{‌ViewController}} 
+     حائز اهمیت هستند. 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=10cm]{images/VClifecycle}
+		\caption{وضعیت‌های {\footnotesize \lr{‌View Controller}} }
+		\label{fig:vclifecycle}
+	\end{figure}
+	{\normalsize \lr{‌iOS}} 
+توابع را به شکل زیر فراخوانی می‌کند: 
+\begin{itemize}
+	\item[ ]
+	{\normalsize \lr{‌viewDidLoad()}}-
+	زمانی که محتویات یک 
+	{\normalsize \lr{‌View}} 
+	توسط 
+	{\normalsize \lr{‌ViewController}} 
+	ساخته می‌شود و از 
+	{\normalsize \lr{‌Storyboard}} 
+	بارگذاری می‌شود، این تابع فراخوانی می‌شود. 
+	
+	بطورمعمول این تابع فقط یکبار توسط 
+	{\normalsize \lr{‌iOS}} 
+	زمانی که محتوای 
+	{\normalsize \lr{‌View}} 
+	ساخته می‌شود، فراخوانی می‌شود. با این وجود محتوای 
+	{\normalsize \lr{‌View}}
+	الزاما، بار اولی که 
+	{\normalsize \lr{‌ViewController}}
+	مقداردهی اولیه می‌شود ساخته نمی‌شود. 
+	
+	\item[ ]
+	{\normalsize \lr{‌viewWillAppear()}}- 
+	قبل از اینکه محتوای 
+	{\normalsize \lr{‌View}}
+	مربوط به 
+	{\normalsize \lr{‌ViewController}}
+	به سلسله مراتب 
+	{\normalsize \lr{‌View}}
+	نرم‌افزار اضافه شود، این تابع فراخوانی می‌شود. از این تابع برای انجام مواردی که لازم است قبل از نشان داده شدن 
+	{\normalsize \lr{‌View}}
+	انجام شود، استفاده می‌شود. این تابع به سادگی نشان می‌دهد که 
+	{\normalsize \lr{‌View}}
+	مورد نظر در حال اضافه شدن به سلسله مراتب 
+	{\normalsize \lr{‌View}}
+	نرم‌افزار می‌باشد.
+	
+	\item[ ] 
+	{\normalsize \lr{‌viewDidApper()}}- 
+	درست بعد از اینکه 
+	{\normalsize \lr{‌View}}
+	مربوط به 
+	{\normalsize \lr{‌ViewController}}،
+	به سلسله مراتب 
+	{\normalsize \lr{‌View}}
+	نرم‌افزار اضافه شود، این تابع فراخوانی می‌شود. از این تابع به منظور انجام اعمالی استفاده می‌شود که ، می‌خواهیم به محض نشان دادن 
+	{\normalsize \lr{‌View}}
+	انجام شوند. برای مثال واکاوی داده و یا نشان دادن یک انیمیشن. این تابع به سادگی نشان می‌دهد که 
+	{\normalsize \lr{‌View}}
+	مورد نظر به سلسله مراتب 
+	{\normalsize \lr{‌View}}
+	نرم‌افزار اضافه شده است.
+	
+\end{itemize}
+	
+\section{استفاده از رابط برنامه‌نویسی نرم‌افزار {\normalsize \lr{‌Core Location}}}
+	برای استفاده از تکنولوژی 
+	{\normalsize \lr{‌iBeacon}}
+	، از رابط برنامه‌نویسی 
+	{\normalsize \lr{‌Core Location}}
+	استفاده می‌شود. برای پیاده سازی دو قابلیت 
+		{\normalsize \lr{‌Monitoring}}
+		و 
+			{\normalsize \lr{‌Ranging}}
+			از کلاس 
+				{\normalsize \lr{‌AppDelegate}} 
+				موجود، بدلیل اینکه امکان استفاده در حالت 
+					{\normalsize \lr{‌Background}}
+				وجود داشته باشد، استفاده می‌شود.
+
+در ابتدا رابط نرم‌افزاری 
+	{\normalsize \lr{‌Core Location}}
+	را به کلاس با قطعه کد زیر وارد می‌کنیم: 
+	\begin{latin}
+		\begin{verbatim}
+	import CoreLocation
+	
+		\end{verbatim}
+		
+	\end{latin}	
+	 پس از وارد کردن رابط نرم‌افزاری ، کلاس 
+	 {\normalsize \lr{‌AppDelegate}}
+	 می‌باید برای پیاده سازی توابع نماینده، از پروتکل 
+		 {\normalsize \lr{‌CLLocationManagerDelegate}}
+	پیروی کند. سپس نیاز به یک شیء برای  تعریف نماینده و یک شیء برای مشخص کردن منطقه برای 
+					{\normalsize \lr{‌iBeacon}} 
+	به منظور استفاده از این تکنولوژی می‌باشد. 
+		\begin{latin}
+		\begin{verbatim}
+let locationManager = CLLocationManager()
+let region = CLBeaconRegion(proximityUUID:
+ NSUUID(uuidString: "163EB541-B100-4BA5-8652-EB0C513FB0F4")
+ ! as UUID , identifier: "mypay")
+		
+		\end{verbatim}
+		
+	\end{latin}	
+	قبل از استفاده از هریک از قابلیت‌ها، باید نماینده مشخص شود و اجازه‌ی دسترسی به 
+					{\normalsize \lr{‌Location Service}}
+	از کاربر باید صادر شود. بدین منظور قطعه کد زیر یک صفحه‌ی درخواست به کاربر نشان می‌دهد: 
+				\begin{latin}
+				\begin{verbatim}
+ locationManager.requestAlwaysAuthorization()
+ locationManager.delegate = self
+
+				\end{verbatim}
+				
+			\end{latin}	
+		این قطعه کد را در تابع 
+			{\normalsize \lr{‌application}}
+			استفاده می‌کنیم.		 
+	
+	\subsection{{\small \lr{‌Monitoring}}}
+	از قابلیت 
+	{\normalsize \lr{‌Monitoring}}
+	تکنولوژی
+	{\normalsize \lr{‌iBeacon}}
+	 به منظور اطلاع از ورود و خروج کاربر از ناحیه‌ی 
+	{\normalsize \lr{‌Beacon}}
+	استفاده می‌شود.
+	
+	برای شروع کار 
+	{\normalsize \lr{‌Monitoring}}
+	در تابع 
+	{\normalsize \lr{‌application}}
+	قطعه کد زیر را وارد می‌کنیم:
+	\begin{latin}
+	\begin{verbatim}
+  locationManager.startMonitoring(for: region)
+
+	\end{verbatim}
+	
+\end{latin}		
+	
+زمانی که کاربر به محدوده‌ی 
+	{\normalsize \lr{‌Beacon}}
+	وارد شود تابع زیر فراخوانی می‌شود: 
+	\begin{latin}
+		\begin{verbatim}
+func locationManager(CLLocationManager, didEnterRegion: CLRegion)
+		\end{verbatim}
+		
+\end{latin}	
+و زمانی که کاربر از محدوده خارج می‌شود، تابع زیر فراخوانی می‌شود: 
+\begin{latin}
+	\begin{verbatim}
+func locationManager(CLLocationManager, didExitRegion: CLRegion)
+	\end{verbatim}
+\end{latin}	
+	پیاده سازی این دو تابع به شکل زیر می‌باشد: 
+	\begin{latin}
+		\begin{verbatim}
+ func locationManager(_ manager: CLLocationManager, 
+ didEnterRegion region: CLRegion) {
+locationManager.startRangingBeacons(in: self.region)
+let content = UNMutableNotificationContent()
+content.title = "Pay here with MyPay"
+content.body = "you are close to a store"
+content.badge = 12
+content.sound = UNNotificationSound.default()
+//        let trigger = UNTimeIntervalNotificationTrigger
+(timeInterval: 5,repeats: false)
+let request = UNNotificationRequest(identifier:
+ "braconnotifi", content: content, trigger: nil)
+let center = UNUserNotificationCenter.current()
+center.add(request, withCompletionHandler: nil)
+}
+
+func locationManager(_ manager: CLLocationManager, 
+didExitRegion region: CLRegion) {
+defaults.set(false, forKey: "storestate")
+defaults.set(nil, forKey: "storename")
+defaults.set(nil, forKey: "storeid")
+defaults.synchronize()
+let content = UNMutableNotificationContent()
+content.title = "heey!"
+content.body = "you left the Beacon area"
+content.badge = 12
+content.sound = UNNotificationSound.default()
+//        let trigger = UNTimeIntervalNotificationTrigger
+(timeInterval: 5,repeats: false)
+let request = UNNotificationRequest(identifier: 
+"beaconnotifi", content: content, trigger: nil)
+let center = UNUserNotificationCenter.current()
+center.add(request, withCompletionHandler: nil)
+}
+		\end{verbatim}
+	\end{latin}	
+	زمانی که کاربر وارد محدوده‌ی 
+		{\normalsize \lr{‌Beacon}}
+		می‌شود، اطلاعی به کاربر به معنی ورود وی به محدوده‌ی 
+			{\normalsize \lr{‌Beacon}}
+			داده می‌شود و به همین شکل زمانی که کاربر از محدوده‌ی 
+				{\normalsize \lr{‌Beacon}}
+				خارج می‌شود اعلان دیگری ارسال می‌شود. 
+				
+	\subsection{{\small \lr{‌Monitoring}}}
+					
 	
 	
 	
