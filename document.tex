@@ -2150,8 +2150,166 @@ center.add(request, withCompletionHandler: nil)
 				{\normalsize \lr{‌Beacon}}
 				خارج می‌شود اعلان دیگری ارسال می‌شود. 
 				
-	\subsection{{\small \lr{‌Monitoring}}}
-					
+	\subsection{{\small \lr{‌Ranging}}}
+برای اطلاع از ورود و خروج کاربران از
+						{\normalsize \lr{‌Monitoring}}
+	استفاده شد. اما تابع مربوطه اطلاعات کافی مربوط به 
+			{\normalsize \lr{‌UUID}}
+			،		{\normalsize \lr{‌Major}}
+			و 
+					{\normalsize \lr{‌Minor}}
+		کشف شده را در اختیارمان قرار نمی‌دهد و به منظور بدست آوردن این مقادیر از 
+				{\normalsize \lr{‌Rangin}}
+				استفاده می‌شود. تابع زیر زمانی فراخوانی می‌شود که تغییری در مقدار مجاورت ایجاد شود: 
+				\begin{latin}
+				\begin{verbatim}
+func locationManager(CLLocationManager, didRangeBeacons:
+ [CLBeacon], in:CLBeaconRegion)
+				\end{verbatim}
+				
+			\end{latin}		
+پیاده‌سازی این تابع بشکل زیر می‌باشد: 
+\begin{latin}
+	\begin{verbatim}
+	
+ if beacons.count > 0 {
+   let knownBeacon = beacons[0]
+    notifyEntryToServer(uuid: knownBeacon.proximityUUID.uuidString, 
+    major: knownBeacon.major.intValue, 
+    minor: knownBeacon.minor.intValue)
+    locationManager.stopRangingBeacons(in: self.region)
+      }
+	\end{verbatim}
+	
+\end{latin}		
+	تابع 
+					{\normalsize \lr{‌notifyEntryToServer}}
+	مقادیر بدست آمده از 
+						{\normalsize \lr{‌Beacon}}
+						را به منظور یافتن مکان فعلی کاربر به سرور ارسال می‌کند. 
+						
+						پیاده‌سازی این تابع در قطعه کد زیر آمده است:‌
+\begin{latin}
+	\begin{verbatim}
+ let defaultConfiguration = URLSessionConfiguration.default
+let delegate = self
+let operationQueue = OperationQueue.main
+let defaultSession = URLSession(configuration:
+ defaultConfiguration, delegate: 
+ delegate, delegateQueue: operationQueue)
+
+if let srvURL = URL(string: MyServer.Method.getStoreMethod) {
+var srvUrlRequest = URLRequest(url: srvURL)
+srvUrlRequest.httpMethod = "POST"
+
+let body = BodyMaker()
+body.appednKeyValue(key: "uuid", value: uuid)
+body.appednKeyValue(key: "major", value: String(major))
+body.appednKeyValue(key: "minor", value: String(minor))
+
+let bodyString  = body.getBody()
+srvUrlRequest.httpBody =
+ bodyString?.data(using: String.Encoding.utf8)
+let dataTask = defaultSession.dataTask(with: srvUrlRequest)
+dataTask.resume()
+}
+	\end{verbatim}
+	
+\end{latin}							
+در این این تابع یک درخواست 
+						{\normalsize \lr{‌POST}}
+	به سرور به منظور پیدا کردن مکان فرستاده می‌شود، سه مقدار 
+							{\normalsize \lr{‌UUID}}
+												،
+																		{\normalsize \lr{‌Major}}
+																		و 
+																								{\normalsize \lr{‌Minor}}
+																								به عنوان پارامتر‌ها ارسال می‌شوند. 
+
+برای ارسال بسته‌های 
+						{\normalsize \lr{‌HTTP}}
+	در 
+							{\normalsize \lr{‌iOS}}
+					از کلاس
+											{\normalsize \lr{‌URLSession}} 
+						و	از دو راه می‌توان این کار را انجام داد:
+\begin{itemize}
+	\item[-]
+	استفاده از 
+							{\normalsize \lr{‌Application Handler}}
+	\item[-]
+	استفاده از توابع نماینده
+\end{itemize}
+	در این نرم‌افزار برای ارسال بسته‌ها از روش استفاده از توابع نماینده استفاده شده است. برای استفاده از این روش 
+	ابتدا کلاس
+							{\normalsize \lr{‌Appdelegate}}
+				از پروتکل 
+										{\normalsize \lr{‌URLSessionDelegate }}
+										و 
+									{\normalsize \lr{‌URLSessionDataDelegate}}
+				تبعیت می‌کند، و سپس به عنوان نماینده‌ تعریف می‌شود.
+	تابعی که برای دریافت پیام ارسالی از طرف سرور باید پیاده‌سازی شود، به صورت زیر می‌باشد: 
+	\begin{latin}
+		\begin{verbatim}
+		func urlSession(_ session: URLSession, dataTask: 
+		URLSessionDataTask, didReceive data: Data) {
+		var serverResultCode: Int?
+		var serverMetaData: String?
+		var serverStoreID: Int?
+		var serverStoreName: String?
+		let responseData = data
+		//  parse the result as JSON, since that's what the API provides
+		do {
+		guard let receivedData = try JSONSerialization.jsonObject(with:
+		 responseData,options: []) as? [String: Any] else {
+		// print("Could not get JSON from responseData as dictionary")
+		return
+		}
+		
+		guard let resutlCode = receivedData["resultcode"] as? Int else {
+		// print("Could not get resultcode as int from JSON")
+		return
+		}
+		serverResultCode = resutlCode
+		guard let metaData = receivedData["metadata"] as? String else {
+		// print("Could not get resultcode as int from JSON")
+		return
+		}
+		serverMetaData = metaData
+		guard let storeID = receivedData["storeid"] as? Int else {
+		// print("Could not get resultcode as int from JSON")
+		return
+		}
+		serverStoreID = storeID
+		guard let storeName = receivedData["storename"] as? String else {
+		// print("Could not get resultcode as int from JSON")
+		return
+		}
+		serverStoreName = storeName
+		
+		} catch  {
+		// print("error parsing response from POST on /getstore")
+		return
+		}
+		if serverResultCode == 500
+		{
+		defaults.set(true, forKey: "storestate")
+		defaults.set(serverStoreName, forKey: "storename")
+		defaults.set(serverStoreID, forKey: "storeid")
+		defaults.synchronize()
+		print(serverMetaData!)
+		  }
+		 }
+		\end{verbatim}
+		
+	\end{latin}	
+	این تابع مقادر ارسالی توسط سرور را دریافت می‌کند و آن‌ها را با استفاده از تجزیه گر 
+								{\normalsize \lr{‌JSON}}
+								تجزیه می‌کند و اطلاعات را در 
+															{\normalsize \lr{‌Userdefaults}}
+															ذخیره می‌کند. 
+	
+	
 	
 	
 	
