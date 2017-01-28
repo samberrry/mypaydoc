@@ -1760,12 +1760,119 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
     
     \cite{ibeaconoverview}
 	
+\section{برنامه‌نویسی در {\normalsize \lr{‌iOS}}}
+	برای برنامه نویسی در محیط 
+	{\normalsize \lr{‌iOS}}
+	، می‌توان از زبان‌های برنامه‌نویسی
+	{\normalsize \lr{‌Objective-C}}
+	و 
+	{\normalsize \lr{‌Swift}}
+	استفاده کرد. در این پروژه از زبان 
+	{\normalsize \lr{‌Swift}}
+	برای برنامه‌نویسی در محیط 
+	{\normalsize \lr{‌iOS}}
+	استفاده‌شده است. 
+\section{ اجزای اصلی}
+	\subsection{{\small \lr{‌AppDelegate.swift}}}
+این کلاس دارای دو وظیفه‌ی اصلی می‌باشد: 
+\begin{itemize}
+	\item[-]
+	کلاس 
+	{\normalsize \lr{‌AppDelegate}}
+	یک پنجره برای نرم‌افزار ایجاد می‌کند که در آن محتویات نرم‌افزار رسم می‌شود و انتقال بین صفحه‌های مختلف صورت می‌گیرد.
+	\item[-]
+	کلاس 
+	{\normalsize \lr{‌AppDelegate}}
+	یک نقطه‌ی شروع 
+		       	\LTRfootnote{Entry Point}
+	و یک حلقه‌ی اجرا 
+		       	\LTRfootnote{Run Loop}
+	که رویداد‌های ورودی 
+			       	\LTRfootnote{Input Event}
+	به ‌آن تحویل داده می‌شوند، را می‌سازد.  این کار توسط صفت 
+			       	\LTRfootnote{Attribute}
+	{\normalsize \lr{‌@UIApplicationMain}}	
+	انجام می‌شود.
+\end{itemize}
 	
+\subsection{	{\small \lr{‌@UIApplicationMain}}	}
+استفاده از صفت 
+	{\normalsize \lr{‌@UIApplicationMain}}	
+	معادل با فراخوانی تابع 
+		{\normalsize \lr{‌UIApplicationMain}}		
+		به عنوان تعیین اسم کلاس
+			{\normalsize \lr{‌AppDelegate}}	
+			به عنوان اسم کلاس نماینده 
+				       	\LTRfootnote{Delegate Class}		
+			می‌باشد.  در جواب سیستم یک شی‌ء نرم‌افزار
+						       	\LTRfootnote{Application Object}
+			 تشکیل می‌دهد. شیء نرم‌افزار مسئول مدیریت چرخه‌ی حیات 
+			 			       	\LTRfootnote{Life Cycle}
+	نرم‌افزار می‌باشد. سیستم همچنین موردی از کلاس
+			{\normalsize \lr{‌AppDelegate}}	
+می‌سازد و آن‌ را به شیء نرم‌افزر مقرر می‌کند. در نهایت سیستم نرم‌افزار را اجرا می‌کند. 
+
+کلاس
+			{\normalsize \lr{‌AppDelegate}}	
+	همچنین حاوی پیاده‌سازی توابع نماینده نیز می‌باشد:
+\begin{latin}
+	\begin{verbatim}
+func application(_ application: UIApplication, 
+didFinishLaunchingWithOptions launchOptions:
+ [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+func applicationWillResignActive(_ application: UIApplication)
+func applicationDidEnterBackground(_ application: UIApplication)
+func applicationWillEnterForeground(_ application: UIApplication)
+func applicationDidBecomeActive(_ application: UIApplication)
+func applicationWillTerminate(_ application: UIApplication)
+	\end{verbatim}
 	
+\end{latin}	
+این توابع اجازه‌ی برقراری ارتباط با نماینده‌ی نرم‌افزار را فراهم می‌کنند. برای مثال در حین فرآیند انتقال از یک صفحه به صفحه‌ی دیگر و یا انتقال نرم‌افزار از 
+			{\normalsize \lr{‌Background}}	
+			به 
+						{\normalsize \lr{‌Foreground}}
+و یا بستن نرم‌افزار، شیء نرم‌افزار تابع نماینده‌ی مربوطه را فراخوانی می‌‌کند، و پاسخی که از قبل تعیین شده برای آن را اجرا می‌کند.	فراخوانی صحیح این توابع به عهده‌ی سیستم می‌باشد و برنامه‌نویس نیاز به انجام کاری نمی‌باشد. 					
+هریک از توابع نماینده یک رفتار پیش‌فرض را دارا هستند. اگر پیاده‌سازی برای این توابع در نظر گرفته نشود، رفتار پیش‌فرض به اجرا در خواهد آمد. 
+\subsection{	{\small \lr{‌Storyboard}}}
+{\normalsize \lr{‌Storyboard}}
+یک نمایش بصری از رابط کاربری نرم‌افزار می‌باشد، که صفحات مختلف، محتوی و انتقال بین صفحات را نمایش می‌دهد. 
+برنامه‌نویس می‌تواند ازین راه تغییرات بر رابط کاربری نرم‌افزار را ایجاد کند و نتایج را همان لحظه مشاهده کند.  	
+\subsection{	{\small \lr{‌ViewController}}}
+همانند بسیاری از پلتفورم‌های نرم‌افزاری که از الگوی طراحی
+						       	\LTRfootnote{Design Pattern}
+{\normalsize \lr{‌MVC}}
+استفاده می‌کنند، در برنامه‌نویسی 
+{\normalsize \lr{‌iOS}}
+نیز از این الگوی طراحی استفاده‌‌شده است. الگوی 
+{\normalsize \lr{‌MVC}}
+شامل، 
+{\normalsize \lr{‌M‌odel}}
+،
+{\normalsize \lr{‌View}} و
+{\normalsize \lr{‌Controller}}
+است.  در این سبک از طراحی 
+{\normalsize \lr{Controller}} 
+وظیفه‌ی ارتباط بین 
+{\normalsize \lr{‌View}} ها 
+و مدل داده
+						       	\LTRfootnote{Data Model}
+را بر عهده دارد. در این طراحی 
+{\normalsize \lr{Model}} ها 
+وظیفه‌ی نگهداری داده‌های نرم‌افزار را بر عهده دارند و 
+{\normalsize \lr{View}} ها 
+  رابط کاربری را نشان می‌دهند و محتوای نمایشی نرم‌افزار را می‌سازند. با پاسخ به اقدامات کاربران و شکل دادن محتوای 
+  {\normalsize \lr{View}} 
+  ها از مدل داده ، 
+  {\normalsize \lr{Controller}} 
+  ها بعنوان درگاهی میان 
+  {\normalsize \lr{View}} 
+  و 
+  {\normalsize \lr{Model}} 
+  عمل می‌کنند.
+  
 	
-	
-	
-	
+
 	
 	
 	
