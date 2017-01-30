@@ -782,9 +782,145 @@
 مورد نظر این درخواست صورت بگیرد و خود را منطبق سازد. 
 \cite{emvframework}
 
-											
+\section{{\large \lr{Secure Element}}}
+یک 
+{\normalsize \lr{Secure Element (SE)}}
+، پلتفورمی سخت‌افزاری بسیار ایمنی به منظور ذخیره‌ی نرم‌افزارها و داده‌های محرمانه و رمزگذاری شده است. بنابراین 
+{\normalsize \lr{SE}}
+نقش بسیار مهمی در زمینه‌ی محاسبات موبایلی 
+	 	\LTRfootnote{Mobile Computing}
+بازی می‌کند.
+
+برای مثال، در صنعت مالی از 
+{\normalsize \lr{SE}}
+ها به منظور ذخیره‌سازی نرم‌افزار‌های کارت و کلیدهای مخصوص رمزنگاری که ملزومات تراکنش‌های مالی
+{\normalsize \lr{EMV}}
+بوسیله‌ی 
+{\normalsize \lr{POS}}
+هستند ،
+استفاده می‌شود. 
+{\normalsize \lr{SE}} ها 
+همچنین در بازار تعیین هویت مورد استفاده قرار می‌گیرد، که به منظور ذخیره سازی گواهینامه‌ها 
+	 	\LTRfootnote{Certificate}
+	 	و یا داده‌های بیومتریک 
+	 		 	\LTRfootnote{Biometric data}
+	 	می‌باشد.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=5cm]{images/se}
+	\caption{{\footnotesize \lr{Secure Element}}}
+	\label{fig:se}
+\end{figure}
+
+
+
+\section{{\large \lr{Host Card Emulation}}}
+همانطور که در بخش قبل تشریح شد،
+به صورت مرسوم  نرم‌افزارهای کیف‌پول الکترونیکی و
+{\normalsize \lr{NFC}}
+داده‌های مورد نیاز برای انجام یک تراکنش را بر روی یک تراشه‌ی فیزیکی به نام 
+{\normalsize \lr{SE}}
+درون یک سرویس موبایل،
+ذخیره می‌کنند. به همین علت مالکان 
+{\normalsize \lr{SE}}
+همانند تولید کنندگان تلفن همراه و گردانندگان شبکه‌ی تلفن همراه
+{\normalsize \lr{MNO}}
+	 	\LTRfootnote{Mobile Network Operator}
+	 	، اجازه‌ی دسترسی و استفاده از این تراشه‌ها  صادر می‌کنند و شارژهای مربوط به 
+{\normalsize \lr{SE}} ها 
+را انجام می‌دهند.
+
+همچنانکه چندین و چند گرداننده‌ی 
+{\normalsize \lr{SE}}
+در سراسر جهان وجود دارد، هر کدام دارای یک مدل تجاری و فنی هستند. ارائه دهندگان خدمات برای ارائه‌ی سرویس‌ها در قالب
+{\normalsize \lr{NFC}}
+ملزم به برقراری ارتباط با هریک از آن‌ها هستند. بسیاری از کارشناسان صنعت پرداخت مشکل یکی کردن سرویس‌ها و وجود چالش برای برقراری ارتباط با دارندگان
+{\normalsize \lr{SE}} را
+مشکلات اصلی در پیاده‌سازی کامل پرداخت 
+{\normalsize \lr{NFC}}
+می‌دانند. با بوجود آمدن تکنولوژی 
+{\normalsize \lr{Host Card Emulation (HCE)}}
+این صنعت دچار پیشرفت چشم گیری شد. این تکنولوژی به تراکنش‌های بر اساس 
+{\normalsize \lr{NFC}}
+اجازه می‌دهد تا بدون نیاز به حضور 
+{\normalsize \lr{SE}}
+و اتصال به آن، انجام شوند. بدین وسیله تکنولوژی 
+{\normalsize \lr{HCE}}
+ارائه دهندگان خدمات را قادر می‌سازد تا مشکلات مدل 
+{\normalsize \lr{SE}}
+و چالش‌های یکی کردن 
+	 	\LTRfootnote{Integration}
+را حل و رفع کنند.
+در حقیقت در این روش اطلاعات ذخیره شده بر روی تراشه‌های 
+{\normalsize \lr{SE}}
+بر روی فضای ابری قرار می‌گیرند و به مانند این است که 
+{\normalsize \lr{SE}}
+ها از روی گوشی به سرورهای 
+{\normalsize \lr{HCE}}
+منتقل شده‌اند.
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=5cm]{images/hce}
+	\caption{{\footnotesize \lr{Host Card Emulation}}}
+	\label{fig:hce}
+\end{figure}
+
+\subsection{پیدایش تکنولوژی {\normalsize\lr{HCE}}} 
+{\normalsize \lr{GSMA}}
+و 
+{\normalsize \lr{Consult Hyperion}}
+در ماه ژانویه‌ی سال ۲۰۱۴ مقاله‌ای برای بانک‌ها و گردانندگان موبایل به منظور فهمیدن راه‌های
+{\normalsize \lr{‌HCE}}
+و 
+{\normalsize \lr{SE}}
+منتشر کرد. در فوریه‌ی همان سال 
+{\normalsize \lr{MasterCard}}
+و 
+{\normalsize \lr{Visa}}
+پشتیبانی خود از تکنولوژی 
+{\normalsize \lr{HCE}}
+را خبر دادند. به همراه آن مشخصات فنی برای این تکنولوژی نیز منتشر شد.  از تاریخ آپریل ۲۰۱۴ فقط برای 
+سرویس 
+{\normalsize \lr{Google Wallet}}
+ممکن بود تا پرداخت 
+{\normalsize \lr{NFC}}
+خود را از راه 
+{\normalsize \lr{HCE}}
+بدون نیاز به 
+{\normalsize \lr{SE}}  
+انجام دهد. در سال ۲۰۱۵ شرکت مایکروسافت پشتیبانی از 
+{\normalsize \lr{HCE}}
+را در سیستم‌عامل ویندوز ۱۰ خود گنجاند. 
+
+\subsection{فواید استفاده از تکنولوژی {\normalsize \lr{HCE}}}
+\subsubsection{استقلال}
+		با استقرار سرویس‌ها بر 
+		{\normalsize \lr{HCE}}
+		هیچ نیازی به واسط‌ها برای دسترسی به 
+		{\normalsize \lr{SE}}
+وجود ندارد. این امر باعث کم شدن خلاء میان ارائه‌دهنده‌ی نرم‌افزار و مشتری می‌شود. 
+
+\subsubsection{یکی شدن آسان‌تر با شخص ثالث}					
+در اختیار داشتن کنترل 
+{\normalsize \lr{SE}}			
+	سهولت یکی شدن آسان‌تر با شخص ثالث را به همواه خواهد داشت.
+\subsubsection{هزینه‌های پایین‌تر}				
+	به دنبال استفاده از تکنولوژی
+	{\normalsize \lr{HCE}} ، 
+	هزینه‌های یکی‌ کردن سرویس 
+	{\normalsize \lr{SE}}
+	وجود نخواهند داشت. 		
 					
-					
+\subsubsection{استفاده از چندین کارت}
+					از آنجایی که سیستم ذخیره‌سازی فیزیکی 
+					{\normalsize \lr{SE}}
+					محدود است، با استفاده از 
+					{\normalsize \lr{HCE}}
+		و استفاده از فضای ابری این محدودیت برای ذخیره سازی اطلاعات کارت‌ها رفع می‌شود و تعداد کارت بیشتری می‌تواند مورد پشتیبانی قرار بگیرد.
+		
+	\cite{hcese}			
+
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\chapter{بررسی نحوه‌ی کار و مقایسه‌ی  سرویس‌های   {\Large\lr{Apple Pay} }  و   {\Large\lr{Android Pay} }}\label{comparison}
 		در این فصل به نحوه‌ی کار سرویس 
@@ -1288,8 +1424,6 @@
      \end{enumerate}      	
      
      \cite{androidpay}         
-               
- 
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		
@@ -2084,7 +2218,7 @@ func applicationWillTerminate(_ application: UIApplication)
 {\normalsize \lr{‌Storyboard}}
 یک نمایش بصری از رابط کاربری نرم‌افزار می‌باشد، که صفحات مختلف، محتوی و انتقال بین صفحات را نمایش می‌دهد. 
 برنامه‌نویس می‌تواند ازین راه تغییرات بر رابط کاربری نرم‌افزار را ایجاد کند و نتایج را همان لحظه مشاهده کند.  	
-\subsection{الگوی طراحی {\small \lr{‌MVC}}}
+\section{الگوی طراحی {\small \lr{‌MVC}}}
 همانند بسیاری از پلتفورم‌های نرم‌افزاری که از الگوی طراحی
 						       	\LTRfootnote{Design Pattern}
 {\normalsize \lr{‌MVC}}
@@ -2123,7 +2257,7 @@ func applicationWillTerminate(_ application: UIApplication)
   	\label{fig:mvcpattern-2}
   \end{figure}
 
-\subsubsection{{\small \lr{‌UIView}}}
+\subsection{{\small \lr{‌UIView}}}
 عناصری که در رابط کاربری نمایش داده می‌شوند 
   {\normalsize \lr{View}} 
   نام دارند. 
@@ -2143,7 +2277,7 @@ func applicationWillTerminate(_ application: UIApplication)
      {\normalsize \lr{UITextField}} 
      اشاره کرد که اجازه‌ی تایپ یک متن در یک خط را به کاربر می‌دهد.
 
-\subsubsection{{\small \lr{‌UIView Controller}}}
+\subsection{{\small \lr{‌UIView Controller}}}
  در 
    {\normalsize \lr{iOS}}
   نقش 
@@ -2537,11 +2671,39 @@ dataTask.resume()
 								تجزیه می‌کند و اطلاعات را در 
 															{\normalsize \lr{‌Userdefaults}}
 															ذخیره می‌کند. 
+
+\section{ {\normalsize \lr{‌UserDefaults}}}	
+کلاس
+	{\normalsize \lr{‌UserDefaults}}
+	یک رابط برنامه‌نویسی برای تعامل با سیستم پیش‌فرض‌ها 
+							       	\LTRfootnote{system defaults}
+	فراهم می‌کند. سیستم پیش‌فرض‌ها به یک نرم‌افزار اجازه می‌دهد تا خودش را مطابق با تنظیمات کاربر شخصی سازی کند. نرم‌افزار چنین تنظیماتی را با مقرر کردن مقادیری به یک مجموعه‌ای از پارامترها در پایگاه‌داده‌ی پیش‌فرض‌ها ذخیره می‌کند. این پارامتر‌ها به مقادیر پیش‌فرض منتسب می‌شوند به این دلیل که برای تعیین کردن وضعیت اولیه‌ی نرم‌افزار در زمان شروع استفاده می‌شوند. 
 	
+در پروژه از مقادیر پیش‌فرض به منظور ذخیره‌ی مقادری احراز هویت و وضعیت نرم‌افزار مورد استفاده قرار گرفته است. 
+
+نحوه‌ی استفاده از مقادیر پیش‌فرض بدین شکل است که ابتدا یک مورد از مقادیر پیش‌فرض گرفته می‌شود :
+\begin{latin}
+	\begin{verbatim}
+let defaults = UserDefaults.standard	
+	\end{verbatim}
 	
+\end{latin}	
+	سپس به شکل زیر پارامترها و مقادیر آن ها به همدیگر منتسب می‌شوند:
+\begin{latin}
+	\begin{verbatim}
+defaults.set(true, forKey: "storestate")
+defaults.set(serverStoreName, forKey: "storename")
+defaults.set(serverStoreID, forKey: "storeid")
+	\end{verbatim}
 	
-	
-	
+\end{latin}		
+	برای واکاوی مقادیر به شکل زیر عمل می‌شود: 
+	\begin{latin}
+		\begin{verbatim}
+defaults.bool(forKey: "storestate") 
+		\end{verbatim}
+		
+	\end{latin}	
 	
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
