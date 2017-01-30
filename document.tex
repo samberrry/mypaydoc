@@ -1193,11 +1193,101 @@
       \cite{iossecurity}
       
       \section{{\large\lr{Android Pay}}}
-   
+ نحوه‌ی کار کلی سرویس 
+       	{\normalsize \lr{Android Pay}}
+       	همانند سرویس
+       	      	{\normalsize \lr{Apple Pay}}
+       	با تفاوت‌هایی می‌باشد. سرویس 
+       	      	{\normalsize \lr{Android Pay}} 
+       	      	به جای استفاده از تراشه‌ای بر روی تلفن همراه، خواه تراشه‌ای بر روی سیم‌کارت و یا تراشه‌ای بر روی  تلفن‌ همراه، از تکنولوژی
+       	      	      	{\normalsize \lr{HCE}} 
+       	      	      	استفاده می‌کند. 
       
-      
-      
-               
+      مراحل کار سرویس 
+            	{\normalsize \lr{Android Pay}} 
+            	به صورت زیر می‌باشد:
+     \begin{enumerate}
+     	\item 
+     	کاربر گزینه‌ی 
+     	{\normalsize \lr{Buy With Android Pay}} 
+     	را انتخاب می‌کند. با استفاده از رابط برنامه‌نویسی گوگل، پذیرنده درخواست شیء
+     	{\normalsize \lr{Masked Wallet}} 
+     	را برای نمایش مشخصات کاربر و اطلاعات کارت، به کاربر را می‌دهد.
+     	\item 
+     	کاربر پرداخت را تأیید می‌کند. پذیرنده با استفاده از رابط برنامه‌نویسی گوگل، درخواست شیء
+     	{\normalsize \lr{Full Wallet}} 
+     	را می‌دهد. این درخواست حاوی کلید عمومی 
+     	               	\LTRfootnote{Public Key}       
+     	پذیرنده نیز می‌باشد. 
+     	\item 
+     	گوگل درخواست 
+     	{\normalsize \lr{Token}} 
+     	شبکه‌ی پرداخت و 
+     	{\normalsize \lr{Cryptogram}} 
+     	را به شبکه‌ی پرداخت می‌دهد.
+     (
+     {\normalsize \lr{Cryptogram}} 
+     معادل 
+     {\normalsize \lr{Transaction-specific dynamic security code}} 
+     در سرویس
+     {\normalsize \lr{Apple Pay}} 
+     می‌باشد.
+     )
+     \begin{enumerate}
+     	\item
+     	شبکه‌ی پرداخت درخواست 
+     	     {\normalsize \lr{Token}} 
+     	     پرداخت 
+     	     و 
+     	          {\normalsize \lr{Cryptogram}} 
+     	          را به 
+     	               {\normalsize \lr{Token Service Provider}}  
+     	           شبکه    می‌دهد.
+     \item
+     شبکه
+                         {\normalsize \lr{Token Service Provider}}
+                         درخواست 
+                              {\normalsize \lr{Token}} پرداخت را به 
+                              صادر کننده می‌دهد. 
+     \item 
+     صادر کننده‌ 
+          {\normalsize \lr{Token}} 
+          شبکه‌ی پرداخت و
+               {\normalsize \lr{Cryptogram}} 
+           را به 
+               {\normalsize \lr{Token Service Provider}} 
+               شبکه‌ می‌دهد.                    
+     \item
+     شبکه‌ی 
+          {\normalsize \lr{Token Service Provider}} 
+          ،      {\normalsize \lr{Token}} 
+          و 
+               {\normalsize \lr{Cryptogram}} 
+               را به شبکه‌ی پرداخت تحویل می‌دهد.                       
+     \end{enumerate}
+	 \item
+	شبکه‌ی پرداخت 
+	     {\normalsize \lr{Token}} پرداخت 
+	     و 
+	          {\normalsize \lr{Cryptogram}} 
+	          را به گوگل ارسال می‌کند. 
+	 \item
+	 گوگل یک بسته‌ی اطلاعاتی که با استفاده از کلید عمومی ارسال شده در درخواست
+	      {\normalsize \lr{Full Wallet}}
+	       و آن‌را در جواب رابط نرم‌افزاری گوگل می‌گنجاند. 
+	  \item
+	  نرم‌افزار 
+	       {\normalsize \lr{Android Pay}}      
+	       با استفاده از فراخوانی تابع
+	            {\normalsize \lr{onActivityresult()}} 
+	               داده‌ی پرداخت رمزنگاری شده را به سرور پذیرنده ارسال می‌کند.
+	   \item
+	   پذیرنده با استفاده از زیر ساخت خود، و یا با استفاده از 
+     {\normalsize \lr{SDK}}
+     یک پردازنده‌ی پرداخت، شروع به پردازش تراکنش می‌کند.   
+     \end{enumerate}      	
+     
+     \cite{androidpay}         
                
  
 		
