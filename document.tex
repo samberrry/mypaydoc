@@ -1731,7 +1731,8 @@ session.setAttribute("currentstore",store);
 	int storeid;
 	String storename;
 	
-	public StoreResponse(int resultcode, String metadata, int storeid, String storename) {
+	public StoreResponse(int resultcode, String metadata,
+	 int storeid, String storename) {
 	super(resultcode, metadata);
 	this.storeid = storeid;
 	this.storename = storename;
