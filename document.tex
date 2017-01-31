@@ -1803,8 +1803,297 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
 	\end{latin}		
 	
 	\section{{\large\lr{Hibernate}}}
+	{\normalsize \lr{‌Hibernate}}
+	یک راه‌حل 
+	{\normalsize \lr{‌Object-Relational Mapping (ORM)}}
+	برای پلتفورم 
+	{\normalsize \lr{‌Java}} 
+	است ، که بصورت یک قالب کاری متن‌باز 
+	\LTRfootnote{Open Source}
+	توسط 
+	{\normalsize \lr{‌Gavin King}} 
+	در سال ۲۰۰۱ بوجود آمد. 
+	{\normalsize \lr{‌Hibernate}} 
+	یک سرویس پرس‌وجوی قدرتمند و با عملکرد بالا برای نرم‌افزارهای 
+	{\normalsize \lr{‌Java}} 
+	می‌باشد. 
 	
+{\normalsize \lr{‌Hibernate}} 
+کلاس‌های 
+{\normalsize \lr{‌Java}}
+را به جداول 
+{\normalsize \lr{‌SQL}} 
+نگاشت می‌کند و 
+بین اشیاء مرسوم
+{\normalsize \lr{‌Java}} 
+	و سرور پایگاه‌داده قرار دارد و وظیفه‌ی ذخیره‌ی اشیاء را بر روی مکانیزم‌ها و الگوهای  
+	{\normalsize \lr{‌O/R}} 
+	دارد. 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[height=4cm]{images/orm}
+		\caption{{\footnotesize \lr{‌ORM/Hibernate}} }
+		\label{fig:orm}
+	\end{figure}
+	 
+\subsection{اجزاری برنامه‌نویسی {\normalsize \lr{‌Hibernate}} }
+	\subsubsection{شیء {\small \lr{‌Configuration}} }
+اولین شیءای که در هر نرم‌افزار بر اساس 
+{\normalsize \lr{‌Hibernate}} 
+و تنها یک با هم ساخته می‌شود، شیء 
+{\normalsize \lr{‌Configuration}} 
+می‌باشد.این شیء نشان دهنده‌ی تنظیمات و یا فایل‌های خصوصیات می‌باشد. شیء
+{\normalsize \lr{‌Configuration}} 
+دو جزء اصلی را فراهم می‌کند:
+\begin{itemize}
+	\item[-]
+	\textbf{{\small \lr{‌Database Connection}} : }
+		 توسط یک یا چند فایل تنظیمات پشتیبانی شده توسط
+{\normalsize \lr{‌Hibernate}} 
+		 	انجام می‌شود.
+		 	این فایل ها:
+		 	{\normalsize \lr{‌hibernate.properties}} 
+		 	و
+		 	{\normalsize \lr{‌hibernate.cfg.xml}} 
+		 	هستند.
+	\item[-]
+		\textbf{{\small \lr{‌Class Mapping Setup}} : }
+این جزء اتصال بین کلاس‌های 
+{\normalsize \lr{‌Java}} 
+و جداول پایگاه داده را ایجاد می‌کند.
+\end{itemize}
+ 
+		\subsubsection{شیء {\small \lr{‌SessionFactory}} }
+از شیء 
+{\normalsize \lr{‌Configuration}} 
+برای ساخت  شیء
+{\normalsize \lr{‌SessionFactory}} 
+استفاده می‌شود.  شیء
+{\normalsize \lr{‌SessionFactory}} 
+به اصطلاح یک شیء سبک وزن می‌باشد و در زمان شروع برنامه به منظور استفاده‌ی مجدد از آن، ساخته می‌شود. برای هر پایگاه داده نیازمند یک 
+{\normalsize \lr{‌SessionFactory}} 
+جدا خواهیم بود. 
+		\subsubsection{شیء {\small \lr{‌Session}} }
+یک 
+{\normalsize \lr{‌Session}} 
+برای ایجاد یک ارتباط فیزیکی با پایگاه داده مورد استفاده قرار می‌گیرد. شیء
+{\normalsize \lr{‌Session}}
+ به اصطلاح شیء سبک می‌باشد که در هر تعامل با پایگاه داده باید ساخته شود. 
+			\subsubsection{شیء {\small \lr{‌Transaction}} }
+	یک 
+	{\normalsize \lr{‌Transaction}}
+	نشان‌دهنده‌ی یک واحد کاری با پایگاه‌داده می‌باشد و بیشتر 
+	{\normalsize \lr{‌RDBMS}}
+	ها از قابلیت 
+	{\normalsize \lr{‌Transaction}}
+	پشتیبانی می‌کنند. 
 	
+			\subsubsection{شیء {\small \lr{‌Query}} }	
+	شیء 
+		{\normalsize \lr{‌Query}}
+از رشته‌ی 
+{\normalsize \lr{‌SQL}}
+و یا
+{\normalsize \lr{‌HQL}}
+برای نسبت دادن داده‌ها و ساختن آن‌ها استفاده می‌کنند.  
+	
+				\subsubsection{شیء {\small \lr{‌Criteria}} }	
+	شیء
+			{\normalsize \lr{‌Criteria}}
+	برای ساخت و اجرای پرسجو‌ها در محیط شیءگرایی و واکاوی اشیاء به کار می‌روند.		
+			
+	\subsection{ {\normalsize \lr{‌hibernate.cfg.xml }} }
+	{\normalsize \lr{‌Hibernate}}
+	نیازمند آن است  قبل از اینکه از آن استفاده شود، اطلاعات نگاشت به منظور تعریف چگونگی ربط کلاس‌ها به جداول پایگاه داده را بداند. همچنین 
+	{\normalsize \lr{‌Hibernate}}
+	نیازمند است اطلاعات اتصال به پایگاه داده و پارامترهای مربوطه به آن داده شود. این اطلاعات در فایلی به نام
+	{\normalsize \lr{hibernate.properties}}
+	و یا
+	{\normalsize \lr{‌hibernate.cfg.xml}}
+	در فرمت 
+	{\normalsize \lr{‌XML}}
+	آورده می‌شوند.  همچنین در این فایل اسم‌کاربری و کلمه‌ی عبور مربوط به پایگاه داده نیز وارد می‌شود.
+	\noindent
+	نمونه‌ای از فایل تنظیمات برای پایگاه داده‌ای به نشانی 
+		{\normalsize \lr{‌jdbc:m ysql://localhost/test}}
+و	فایل حاوی نگاشت کلاس 
+			{\normalsize \lr{‌BeaconEntity}}
+	به شکل زیر می‌باشد:‌
+	\begin{latin}
+		\begin{verbatim}
+		<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+ "http://www.hibernate.org/
+ dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration> <session-factory>
+<property name="hibernate.dialect">
+org.hibernate.dialect.MySQLDialect
+</property>
+<property name="hibernate.connection.driver_class">
+com .m ysql.jdbc.Driver
+</property>
+<!-- Assume test is the database name -->
+<property name="hibernate.connection.url">
+ jdbc:m ysql://localhost/test
+</property>
+<property name="hibernate.connection.username">
+root
+</property>
+<property name="hibernate.connection.password">
+root123
+</property>
+<!-- List of XML mapping files -->
+<mapping resource="BeaconEntity.hbm.xml"/>
+</session-factory> 
+</hibernate-configuration>
+		\end{verbatim}
+		
+	\end{latin}	
+
+	\subsection{ کلاس{\normalsize \lr{‌POJO }} }
+	یک کلاس 
+				{\normalsize \lr{‌POJO}}
+		\LTRfootnote{Plain Old Java Object}
+		یک کلاس 
+						{\normalsize \lr{‌Java}}
+	است که از هیچ کلاس دیگری به ارث نمی‌برد و یا رابط 
+			\LTRfootnote{Interface}
+	دیگری را پیاده سازی نکرده است.	همه‌ی اشیاء عادی 			
+							{\normalsize \lr{‌Java}}	
+	به صورت 
+							{\normalsize \lr{‌POJO}}
+							هستند. این کلاس‌ها در اصل منطبق با کلاس‌های 
+													{\normalsize \lr{‌JavaBeans}}
+				و باید به فرمت آن‌ها باشند. 
+				
+			
+			\noindent
+			به عنوان مثال کلاس 
+									{\normalsize \lr{‌BeaconEntity.java}}
+									زیر به شکل 
+															{\normalsize \lr{‌POJO}}
+															و 
+																					{\normalsize \lr{‌JavaBeans}} 
+																					می‌باشد : 
+		\begin{latin}
+		\begin{verbatim}
+public class BeaconEntity {
+private int idbeacon;
+private String name;
+private String uuid;
+private Integer major;
+private Integer minor;
+private Integer idstore;
+
+public BeaconEntity(int idbeacon, String name, String uuid, Integer major, Integer minor, Integer idstore) {
+this.idbeacon = idbeacon;
+this.name = name;
+this.uuid = uuid;
+this.major = major;
+this.minor = minor;
+this.idstore = idstore;
+}
+
+public int getIdbeacon() {return idbeacon;}
+public void setIdbeacon(int idbeacon) {this.idbeacon = idbeacon;}
+public String getName() {return name;}
+public void setName(String name) {this.name = name;}
+public String getUuid() {return uuid;}
+public void setUuid(String uuid) {this.uuid = uuid;}
+public Integer getMajor() {return major;}
+public void setMajor(Integer major) {this.major = major;}
+public Integer getMinor() {return minor;}
+public void setMinor(Integer minor) {this.minor = minor;}
+public Integer getIdstore() {return idstore;}
+public void setIdstore(Integer idstore) {this.idstore = idstore;}
+}
+
+		\end{verbatim}
+		
+	\end{latin}	
+	
+		\subsection{ فایل{\normalsize \lr{‌Mapping configuration }} }	
+		با استفاده از فایل 
+									{\normalsize \lr{‌‌Mapping configuration}}
+	کلاس‌های تعریف شده به جداول پایگاه داده نگاشت می‌شوند. 
+	نمونه‌ای از یک فایل نگاشت : 
+		\begin{latin}
+		\begin{verbatim}
+		<?xml version='1.0' encoding='utf-8'?>
+		<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+		<hibernate-mapping>
+		
+		<class name="mypaydbmap.BeaconEntity" table="beacon" schema="mypay">
+		<id name="idbeacon">
+		<column name="idbeacon" sql-type="int(11)"/>
+		</id>
+		<property name="name">
+		<column name="name" sql-type="varchar(45)" length="45"/>
+		</property>
+		<property name="uuid">
+		<column name="uuid" sql-type="varchar(200)" length="200"/>
+		</property>
+		<property name="major">
+		<column name="major" sql-type="int(11)" not-null="true"/>
+		</property>
+		<property name="minor">
+		<column name="minor" sql-type="int(11)" not-null="true"/>
+		</property>
+		<property name="idstore">
+		<column name="idstore" sql-type="int(11)" not-null="true"/>
+		</property>
+		</class>
+		</hibernate-mapping>
+		\end{verbatim}
+		
+	\end{latin}											
+		
+	 \subsection{نحوه‌ی استفاده}	
+	پس از ساخت فایل تنظیمات ، کلاس‌های 
+	{\normalsize \lr{‌POJO}}
+	، فایل نگاشت و آماده کردن جداول پایگاه داده برای اتصال به آن‌ها، 
+	{\normalsize \lr{‌‌Hibernate}}
+	 آماده برای انجام فعالیت‌های مربوط به پایگاه‌داده می‌باشد. 
+	 به عنوان مثال برای اضافه کردن یک حساب کاربری برای کاربر به شکل زیر توسط تابع 
+	 	{\normalsize \lr{‌addUser()}}
+	 انجام می‌شود: 
+	\begin{latin}
+	\begin{verbatim}
+	public Integer addUser(String username,String password,String 
+	type,String phone,String email,Integer age){
+	try{
+   SessionFactory sessionFactory = new
+  Configuration().configure().buildSessionFactory(); 
+  }catch (Throwable ex) {
+   System.err.println("Failed to create sessionFactory object."
+    + ex); throw new 
+	  ExceptionInInitializerError(ex);
+	}
+	
+	Session session = sessionFactory.openSession();
+	Transaction tx;
+	Integer id = null;
+	try {
+	tx = session.beginTransaction();
+	UserEntity userEntity = new
+	 UserEntity(username,password,type,age,phone,email,(byte)1);
+	id = (Integer)session.save(userEntity);
+	tx.commit();
+	  }catch (Exception e){
+	System.err.println(e);
+      	}
+	finally {
+	session.close();
+	}
+	return id;
+	}
+	\end{verbatim}
+	
+\end{latin}		 
+	 
+	\cite{hibernate}
 	
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2137,9 +2426,8 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
   اطلاع از موانع موجود برای سیگنال‌‌ها بدین دلیل مهم است که، این موانع بر روی قدرت سیگنال تأثیر مستقیم می‌گذارند، بنابراین دستگاه 
        	  {\normalsize \lr{‌iOS}}
        	  سیگنال‌های ضعیف‌تری را برای تشخیص مجاورت دریافت می‌کنند.        	        	     	       	  
-    
-    \cite{ibeaconoverview}
-	
+\cite{ibeacover}
+   
 \section{برنامه‌نویسی در {\normalsize \lr{‌iOS}}}
 	برای برنامه نویسی در محیط 
 	{\normalsize \lr{‌iOS}}
@@ -2800,11 +3088,6 @@ exprdate,cvv2: cvv2,bankName: bankname)
 					       	\LTRfootnote{init method}		
 	مناسب به منظور کدگشایی داده‌ها پیاده می‌شود. 
 
-	
-	
-	
-	
-	
 	
 	
 	
