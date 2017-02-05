@@ -1699,7 +1699,7 @@
 {\normalsize\lr{doPost}}
 پیاده‌سازی شود. 
 
-با استفاده از قطعه کد زیر، مشخص می‌شود که نوع محتوایی که این وب سرویس بر‌میگرداند از چه نوعی است:‌
+با استفاده از قطعه کد زیر، مشخص می‌شود که نوع محتوایی که این وب سرویس بر‌می‌گرداند از چه نوعی است:‌
 \begin{latin}
 \begin{verbatim}
 	response.setContentType("application/json");
@@ -1774,7 +1774,7 @@ session.setAttribute("currentstore",store);
 	
 \end{latin}
 
-شیئی همانند کد زیر برای تبدیل آن به معادل 
+شیءای همانند کد زیر برای تبدیل آن به معادل 
 {\normalsize\lr{JSON}}
 ساخته می‌شود:
 \begin{latin}
@@ -1786,7 +1786,7 @@ session.setAttribute("currentstore",store);
 \end{latin}
 	برای تبدیل شیء ساخته شده به معادل 
 	{\normalsize\lr{JSON}}
-	آن به شکل زیر عمل می‌شود : 
+	آن به شکل زیر عمل می‌شود:
 	\begin{latin}
 		\begin{verbatim}
 Gson gson = new Gson();
@@ -1824,7 +1824,7 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
 	{\normalsize \lr{‌Object-Relational Mapping (ORM)}}
 	برای پلتفورم 
 	{\normalsize \lr{‌Java}} 
-	است ، که بصورت یک قالب کاری متن‌باز 
+	است،  که بصورت یک قالب کاری متن‌باز 
 	\LTRfootnote{Open Source}
 	توسط 
 	{\normalsize \lr{‌Gavin King}} 
@@ -1832,7 +1832,9 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
 	{\normalsize \lr{‌Hibernate}} 
 	یک سرویس پرس‌وجوی قدرتمند و با عملکرد بالا برای نرم‌افزارهای 
 	{\normalsize \lr{‌Java}} 
-	می‌باشد. 
+	می‌باشد
+		\cite{hibernate}
+	. 
 	
 {\normalsize \lr{‌Hibernate}} 
 کلاس‌های 
@@ -1845,6 +1847,12 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
 	و سرور پایگاه‌داده قرار دارد و وظیفه‌ی ذخیره‌ی اشیاء را بر روی مکانیزم‌ها و الگوهای  
 	{\normalsize \lr{‌O/R}} 
 	دارد. 
+	در شکل 
+	\ref{fig:orm} 
+	ساختار 
+		{\normalsize \lr{‌O/R}} 
+	نشان داده شده است.
+	
 	\begin{figure}[h]
 		\centering
 		\includegraphics[height=4cm]{images/orm}
@@ -1858,7 +1866,7 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
 {\normalsize \lr{‌Hibernate}} 
 و تنها یک با هم ساخته می‌شود، شیء 
 {\normalsize \lr{‌Configuration}} 
-می‌باشد.این شیء نشان دهنده‌ی تنظیمات و یا فایل‌های خصوصیات می‌باشد. شیء
+می‌باشد.  این شیء نشان دهنده‌ی تنظیمات و یا فایل‌های خصوصیات می‌باشد. شیء
 {\normalsize \lr{‌Configuration}} 
 دو جزء اصلی را فراهم می‌کند:
 \begin{itemize}
@@ -1867,7 +1875,7 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
 		 توسط یک یا چند فایل تنظیمات پشتیبانی شده توسط
 {\normalsize \lr{‌Hibernate}} 
 		 	انجام می‌شود.
-		 	این فایل ها:
+		 	این فایل ها
 		 	{\normalsize \lr{‌hibernate.properties}} 
 		 	و
 		 	{\normalsize \lr{‌hibernate.cfg.xml}} 
@@ -1916,7 +1924,7 @@ String jsonString = gson.toJson(rsp,StoreResponse.class);
 				\subsubsection{شیء {\small \lr{‌Criteria}} }	
 	شیء
 			{\normalsize \lr{‌Criteria}}
-	برای ساخت و اجرای پرسجو‌ها در محیط شیءگرایی و واکاوی اشیاء به کار می‌روند.		
+	برای ساخت و اجرای پرس‌وجو‌ها در محیط شیءگرایی و واکاوی اشیاء به کار می‌روند.		
 			
 	\subsection{ {\normalsize \lr{‌hibernate.cfg.xml }} }
 	{\normalsize \lr{‌Hibernate}}
@@ -1990,7 +1998,7 @@ root123
 															{\normalsize \lr{‌POJO}}
 															و 
 																					{\normalsize \lr{‌JavaBeans}} 
-																					می‌باشد : 
+																					می‌باشد:
 		\begin{latin}
 		\begin{verbatim}
 public class BeaconEntity {
@@ -2032,7 +2040,7 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 		با استفاده از فایل 
 									{\normalsize \lr{‌‌Mapping configuration}}
 	کلاس‌های تعریف شده به جداول پایگاه داده نگاشت می‌شوند. 
-	نمونه‌ای از یک فایل نگاشت : 
+	نمونه‌ای از یک فایل نگاشت:
 		\begin{latin}
 		\begin{verbatim}
 		<?xml version='1.0' encoding='utf-8'?>
@@ -2068,8 +2076,7 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 		
 	 \subsection{نحوه‌ی استفاده}	
 	پس از ساخت فایل تنظیمات ، کلاس‌های 
-	{\normalsize \lr{‌POJO}}
-	، فایل نگاشت و آماده کردن جداول پایگاه داده برای اتصال به آن‌ها، 
+	{\normalsize \lr{‌POJO}}، فایل نگاشت و آماده کردن جداول پایگاه داده برای اتصال به آن‌ها، 
 	{\normalsize \lr{‌‌Hibernate}}
 	 آماده برای انجام فعالیت‌های مربوط به پایگاه‌داده می‌باشد. 
 	 به عنوان مثال برای اضافه کردن یک حساب کاربری برای کاربر به شکل زیر توسط تابع 
@@ -2109,12 +2116,12 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 	
 \end{latin}		 
 	 
-	\cite{hibernate}
+
 	
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\chapter{طراحی و پیاده‌سازی نرم‌افزار پرداخت سمت کلاینت}\label{clientimplementation}
-در این فصل ابتدا به توضیح تکنولوژی‌های استفاده شده و سپس به نحوه‌ی عملکرد ، پیاده‌سازی و چگونگی استفاده نرم‌افزار از تکنولوژی‌ها بررسی خواهد شد.
+در این فصل ابتدا به توضیح تکنولوژی‌های استفاده شده و سپس به نحوه‌ی عملکرد،  پیاده‌سازی و چگونگی استفاده نرم‌افزار از تکنولوژی‌ها بررسی خواهد شد.
 
 \section{{\normalsize \lr{Beacon}}}
          {\normalsize \lr{‌Beacon}} 
@@ -2125,17 +2132,17 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
          {\normalsize \lr{‌Beacon}} 
          عملکردی شبیه به فانوس دریایی دارد: 
         بطور پشت‌سرهم سیگانال‌هایی یکسان را ارسال می‌کند که از طریق دستگاه‌های دیگر قابل مشاهده است. 
-       اگرچه به جای نور مرئی، سیگنال‌های رادیویی که از ترکیبی از اعداد و حروف تشکیل شده‌اند که در فواصل زمانی معین تقریبا یک دهم ثانیه ، سیگنال‌ها را مخابره می‌کند. دستگاهی که دارای تکنولوژی 
+       اگرچه به جای نور مرئی، سیگنال‌های رادیویی که از ترکیبی از اعداد و حروف تشکیل شده‌اند که در فواصل زمانی معین تقریبا یک دهم ثانیه،  سیگنال‌ها را مخابره می‌کند. دستگاهی که دارای تکنولوژی 
                 {\normalsize \lr{‌Bluetooth v4.0}} 
     یا 
                         {\normalsize \lr{‌BLE}} \LTRfootnote{Bluetooth Low Energy}
-      باشد ، مانند تلفن‌های همراه هوشمند، می‌تواند سیگنال‌های 
+      باشد، مانند تلفن‌های همراه هوشمند، می‌تواند سیگنال‌های 
                {\normalsize \lr{‌Beacon}} 
    را دریافت کند، همانند دریانوردی که چراغ فانوس دریایی را می‌بیند و از مکان خود مطلع می‌شود. 
    
  \subsection{ساختار داخلی {\small \lr{Beacon}}}
 		{\normalsize \lr{Beacon}}ها 
-		دستگاه‌های بسیار کوچک و ساده‌ای به لحاظ الکترونیکی هستند. آن‌ها متشکل از یک پردازنده ، رادیو ، و باتری‌ها می‌باشند.  
+		دستگاه‌های بسیار کوچک و ساده‌ای به لحاظ الکترونیکی هستند. آن‌ها متشکل از یک پردازنده، رادیو، و باتری‌ها می‌باشند.  
 		{\normalsize \lr{Beacon}}ها 
 		اغلب از باتری‌های کوچک لیتیومی 
 		       	\LTRfootnote{lithium}
@@ -2145,7 +2152,8 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
                 {\normalsize \lr{‌USB}} 
  انرژی مورد نیاز خود را بدست می‌آورند. 
 
-در شکل زیر
+در شکل 
+\ref{fig:estimote-beacons}
 نمونه‌ای از دستگاه
 {\normalsize \lr{‌Beacon}} 
 تولید‌شده‌ی شرکت
@@ -2166,13 +2174,15 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
  
  از 
                 {\normalsize \lr{‌Beacon}} 
-                می‌توان  در  ، خرده‌فروشی ، آموزش ، فرهنگ ، فرودگاه‌ها، رویدادها، بیمارستان‌ها و اداره‌ها  استفاده کرد. از موضوعات بروز و جدید ، به مسائل  
+                می‌توان  در، خرده‌فروشی 
+		       	\LTRfootnote{Retail}
+                ،  آموزش، فرهنگ، فرودگاه‌ها، رویدادها، بیمارستان‌ها و اداره‌ها  استفاده کرد. از موضوعات بروز و جدید،  به مسائل  
                                {\normalsize \lr{‌IoT}} 
                                		       	\LTRfootnote{Internet of Things}
             و    بازاریابی مجاورتی
 		       	\LTRfootnote{Proximity Marketing}
-                می‌توان اشاره کرد‌ ، که بطور مثال به معنی ارائه‌ی  پیشنهاد خرید به مشتریان در هنگام ورود به یک فروشگاه می‌باشد. 
-                موضوعات کاربردهای تجاری و  مورد‌های تجاری 
+                می‌توان اشاره کرد‌.
+            در این پایان‌نامه    موضوعات کاربردهای تجاری و  مورد‌های تجاری 
                 {\normalsize \lr{‌Beacon}} 
                 مورد بحث نخواهد بود.
                 
@@ -2198,7 +2208,9 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 		{\normalsize \lr{‌iPhone}} 
 		و 
 				{\normalsize \lr{‌iPad}} 
-				دارد. 				
+				دارد. 				در شکل 
+				\ref{fig:ibeacon}
+آیکون این تکنولوژی نشان داده شده است.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[height=1.5cm]{images/iBeacon}
@@ -2220,6 +2232,9 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 				مشابه 
 						{\normalsize \lr{‌iBeacon}} 
 						می‌باشد اما دارای قابلیت های توسعه یافته‌ی بیشتری می‌باشد. 
+		شکل 
+	\ref{fig:eddystone2}
+	آیکون این تکنولوژی را نشان می‌دهد.
 						\begin{figure}[h]
 							\centering
 							\includegraphics[height=2.5cm]{images/eddystone2}
@@ -2236,14 +2251,14 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 	{\normalsize \lr{‌Eddystone-UID}} 
 	کارایی همانند 
 	 		{\normalsize \lr{‌iBeacon}} 
-	 		دارد : انتشار قطعه کدی به فواصل زمانی یکسان. 
+	 		دارد: انتشار قطعه کدی به فواصل زمانی یکسان. 
 		{\normalsize \lr{‌Eddystone-URL}}
 		یک 
 			{\normalsize \lr{‌URL}} 
-			که توسط هرکسی با یک گوشی هوشمند(خواه نرم‌افزار شمارا نصب کرده باشند یا نه) قابل مشاهده است. 
+			که توسط هرکسی با یک گوشی هوشمند   (خواه نرم‌افزار شمارا نصب کرده باشند یا نه) قابل مشاهده است. 
 			{\normalsize \lr{Eddystone-TLM}}
-داده‌های مربوط به فاصله سنجی را انتشار می‌دهند .
-\cite{kontakt}
+داده‌های مربوط به فاصله سنجی را انتشار می‌دهند
+\cite{kontakt}.
 
 \subsection{ تکنولوژی    {\normalsize \lr{‌iBeacon}} }
 این تکنولوژی با عرضه‌ی 
@@ -2263,7 +2278,7 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 	 			 		{\normalsize \lr{‌iOS}} 
 	 			 		نیز می‌توانند اعلان‌های 
 	 			 			 		{\normalsize \lr{‌iBeacon}}
-	 			 			 		را انتشار دهند ، اگر چه این قابلیت برای ناحیه‌ی محدودی می‌تواند باشد. 
+	 			 			 		را انتشار دهند، اگر چه این قابلیت برای ناحیه‌ی محدودی می‌تواند باشد. 
 	 			 			 		
 	\subsection{سیگنال‌های {\normalsize \lr{‌iBeacon}}} 			 			 		
 	اطلاعاتی که در اعلان‌های سینگال 
@@ -2277,21 +2292,20 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
  این سه مقدار اطلاعات شناسایی را برای 
  		 		{\normalsize \lr{‌iBeacon}}
  		 		فراهم می‌کنند.  توسعه دهندگان نرم‌افزار از 
- 		 				 		{\normalsize \lr{‌UUID}}
-، به منظور تعریف یک شناسنده برای نرم‌افزار خود یا مورد کاربردی خود استفاده می‌کنند. 
+ 		 				 		{\normalsize \lr{‌UUID}}،  به منظور تعریف یک شناسنده برای نرم‌افزار خود یا مورد کاربردی خود استفاده می‌کنند. 
 از دو مقادیر 
 		 		{\normalsize \lr{‌Major}}
 		 		و 
 		 				 		{\normalsize \lr{‌Minor}}
 		 				 		هم برای تقسیم بندی‌های بیشتر استفاده می‌شود. برای مثال نرم‌افزار خرده‌فروشی  با شعب موجود در سراسر کشور را در نظر بگیرید که از این تکنولوژی استفاده کرده باشد. مقدار 
 		 				 		{\normalsize \lr{‌UUID}}
-یک مقدار ثابتی برای کل نرم‌افزار خواهد بود، و توسط تمامی مکان‌ها به اشتراک گذاشته شده. این مقدار به دستگاه 
+یک مقدار ثابتی برای کل نرم‌افزار خواهد بود، و توسط تمامی مکان‌ها به اشتراک گذاشته می‌شود. این مقدار به دستگاه 
 {\normalsize \lr{‌iOS}}
-امکان این را می‌دهد که با یک شناساگر ، مناطق مربوط به این فروشگاه را تشخیص بدهد. از مقدار 
+امکان این را می‌دهد که با یک شناساگر، مناطق مربوط به این فروشگاه را تشخیص بدهد. از مقدار 
 {\normalsize \lr{‌Major }}
 برای تقسیم بندی شهر‌ها استفاده می‌شود، به این شکل که هر شهر مختلف دارای یک شماره‌ی 
 {\normalsize \lr{‌Major}}
-خاص خود است. برای مثال شهر تهران مقدار ۱ ، شهر اصفهان ۲ و به همین ترتیب برای شهر‌های دیگر. از مقدار 
+خاص خود است. برای مثال شهر تهران مقدار ۱،  شهر اصفهان ۲ و به همین ترتیب برای شهر‌های دیگر. از مقدار 
 {\normalsize \lr{‌Minor}}
 به منظور بخش‌بندی درون فروشگاه استفاده می‌شود، برای مثال بخش حسابداری مقدار ۱۰، بخش لوازم‌خانگی مقدار ۲۰ و بخش پوشاک مقدار ۳۰. بدین ترتیب دستگاه 
 {\normalsize \lr{‌iOS}}
@@ -2302,9 +2316,8 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 {\normalsize \lr{‌iBeacon}}
 متکی به تکنولوژی 
 {\normalsize \lr{‌ BLE}} 
-می‌باشد ، از این رو نیازمند مدل‌های بالاتر از
-{\normalsize \lr{‌iPhone 4S}}
-،
+می‌باشد، از این رو نیازمند مدل‌های بالاتر از
+{\normalsize \lr{‌iPhone 4S}}،
 {\normalsize \lr{‌iPod}} 
 نسل۵ و 
 {\normalsize \lr{‌iPad}} 
@@ -2320,7 +2333,7 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 {\normalsize \lr{‌Core Location}}
 برای تعریف مناطق جغرافیایی 
 		       	\LTRfootnote{geofence}
-	استفاده می‌شد(استفاده از طول و عرض جغرافیایی و شعاع).
+	استفاده می‌شد  (استفاده از طول و عرض جغرافیایی و شعاع).
 			       	\LTRfootnote{Proximity Marketing}
 	{\normalsize \lr{‌iBeacon}}
 	قابلیتی اضافه‌تر با تعریف شناسنده برای منطقه بیان کرد. 
@@ -2329,20 +2342,20 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 	{\normalsize \lr{‌iBeacon}}
 	بخشی از 
 	{\normalsize \lr{‌Core Location}}
-	می‌باشد ، اجازه‌ی کاربر یکسانی برای استفاده از این سرویس مورد نیاز خواهد بود. زمانی که نرم‌افزاری تلاش برای استفاده از 
+	می‌باشد، اجازه‌ی کاربر یکسانی برای استفاده از این سرویس مورد نیاز خواهد بود. زمانی که نرم‌افزاری تلاش برای استفاده از 
 	{\normalsize \lr{‌iBeacon}}
-	می‌کند ، کاربر هشدار اجازه‌ی یکسانی با 
+	می‌کند، کاربر هشدار اجازه‌ی یکسانی با 
 	{\normalsize \lr{‌Core Location}}
 	خواهد دید. 
 	
 \subsubsection{دقت {\small \lr{‌iBeacon}}}
-برای اطمینان حاصل کردن از یک تجربه‌ی خوب برای کاربر ، بررسی چگونگی تشخیص سیگنال‌ها توسط 
+برای اطمینان حاصل کردن از یک تجربه‌ی خوب برای کاربر،  بررسی چگونگی تشخیص سیگنال‌ها توسط 
 {\normalsize \lr{‌iBeacon}} ها 
 و دقت آن‌ها مورد اهمیت است. زمانی که یک دستگاه 
 {\normalsize \lr{‌iOS}}
 یک سیگنال 
 {\normalsize \lr{‌Beacon}}
-را دریافت می‌کند ، دستگاه از قوت سیگنال برای تعیین دقت و اندازه‌گیری مجاورت با آن استفاده می‌کند. هرچقدر که سیگنال قوی تر باشد 
+را دریافت می‌کند،   دستگاه از قوت سیگنال برای تعیین دقت و اندازه‌گیری مجاورت با آن استفاده می‌کند. هرچقدر که سیگنال قوی تر باشد 
 {\normalsize \lr{‌iOS}}
 می‌تواند با اطمینان بیشتری مقدار مجاورت را تشخیص دهد. 
 
@@ -2352,20 +2365,20 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
   {\normalsize \lr{‌Monitoring}} 
  و
   {\normalsize \lr{‌Ranging}}
-  می‌باشد که در ادامه به توضیح این دو سرویس می‌پردازیم .
+  می‌باشد که در ادامه به توضیح این دو سرویس پرداخته می‌شود.
 
 \subsection{{\normalsize \lr{‌Monitoring}}}
 همانند 
 {\normalsize \lr{‌Monitoring}} 
-منطقه و یا نظارت کردن منطقه در تکنولوژی موجود جغرافیایی، یک نرم‌افزار می‌تواند ورود و خروج از یک منطقه را به کاربر اطلاع دهد. زمانی که یک نرم‌افزار درخواست برای نظارت یک منطقه را می‌دهد ، حتما باید 
+منطقه و یا نظارت کردن منطقه در تکنولوژی موجود جغرافیایی، یک نرم‌افزار می‌تواند ورود و خروج از یک منطقه را به کاربر اطلاع دهد. زمانی که یک نرم‌افزار درخواست برای نظارت یک منطقه را می‌دهد،  حتما باید 
 {\normalsize \lr{‌UUID}}
 منطقه‌ی مورد نظر را ارائه دهد. در حالی که نظارت مناطق برای یک دستگاه محدود به ۲۰ 
 {\normalsize \lr{‌UUID}}
-مختلف می‌باشد ، دستگاه می‌تواند چندین مکان فیزیکی را تحت نظارت قرار دهد. برای مثال یک دستگاه می‌تواند با استفاده از تنها یک 
+مختلف می‌باشد،  دستگاه می‌تواند چندین مکان فیزیکی را تحت نظارت قرار دهد. برای مثال یک دستگاه می‌تواند با استفاده از تنها یک 
 {\normalsize \lr{‌UUID}}
 چندین مکان مختلف را تحت نظارت قرار دهد. روش تحت نظارت قرار دادن با 
 {\normalsize \lr{‌iBeacon}}
-نسبت به روش جغرافیایی فرق دارد، بدین شکل که در روش 
+نسبت به روش جغرافیایی فرق دارد.  بدین شکل که در روش 
 {\normalsize \lr{‌iBeacon}}
 تنها با یک خط کد می‌توان چندین مکان و یا شیء را تحت نظارت قرار داد. 
 
@@ -2373,9 +2386,9 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 {\normalsize \lr{‌Major}}
  و 
 {\normalsize \lr{‌Minor}}
-نیز می‌توان برای تقسیم بندی‌های بیشتر استفاده کرد. برای شروع تحت‌نظارت قرار دادن یک منطقه ، این دو مقدار ضروری نخواهند بود. 
+نیز می‌توان برای تقسیم بندی‌های بیشتر استفاده کرد. برای شروع زیر نظر قرار دادن یک منطقه ، این دو مقدار ضروری نخواهند بود. 
 
-همچنان که نظارت بر یک منطقه‌ی موجود کار می‌کند (نظارت با استفاده از مکان جغرافیایی) ، زمانی که کاربر از منطقه‌ خارج می‌شود  و یا وارد می‌شود ، نرم‌افزار مطلع خواهد شد. اگر نرم‌افزار بسته شده باشد، و در حال کار نباشد ، آگهی‌ها 
+همانند  نظارت با استفاده از مکان جغرافیایی، زمانی که کاربر از منطقه‌ خارج و یا وارد می‌شود ، نرم‌افزار مطلع خواهد شد. اگر نرم‌افزار بسته شده باشد، و در حال کار نباشد ، آگهی‌ها 
 		       	\LTRfootnote{Notification}
 		       	به صورت پشت‌پرده 
 		       			       	\LTRfootnote{Background}
@@ -2389,12 +2402,12 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 
  بر اساس 
  {\normalsize \lr{‌BLE}}
- محدوده‌ی تحت پوشش سیگنال‌ها به ده‌ها متر می‌رسد، که از نظارت با استفاده از جغرافیا دقیق‌تر می‌باشد . 
- در حقیقت موارد استفاده‌ی مکان‌یابی جغرافیایی ، در مکان‌های سرباز می‌باشد، در صورتی که مورد استفاده‌ی 
+ محدوده‌ی تحت پوشش سیگنال‌ها به ده‌ها متر می‌رسد، که از نظارت با استفاده از جغرافیا دقیق‌تر می‌باشد.
+ در حقیقت موارد استفاده‌ی مکان‌یابی جغرافیایی،  در مکان‌های سرباز می‌باشد، در صورتی که مورد استفاده‌ی 
  {\normalsize \lr{‌iBeacon}}
  برای مکان‌های سربسته می‌باشد. با این وجود دقت در سیگنال‌های 
  {\normalsize \lr{‌iBeacon}}
- می‌تواند بر اساس موانع فیزیکی متغییر باشد. 
+ می‌تواند بر اساس موانع فیزیکی متغیر باشد. 
   		       	
  \subsection{{\normalsize \lr{‌Ranging}}}
   {\normalsize \lr{‌iOS 7}}
@@ -2403,28 +2416,28 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
    معرفی کرد، که اسم این فرآیند 
     {\normalsize \lr{‌Ranging}}
     و یا محدوده‌یابی می‌باشد. 
-    بر اساس سناریو‌های متداول 
+    بر اساس سناریو‌های متداول،
      {\normalsize \lr{‌iOS}}
-     فیلترهایی برای حدس میزان مجاورت نیز معرفی کرده است. این حدس‌های مجاورت به چهار وضعیت زیر تعریف می‌شوند:‌
+       فیلترهایی برای حدس میزان مجاورت نیز معرفی کرده است. این حدس‌های مجاورت به چهار وضعیت زیر تعریف می‌شوند:‌
      \begin{itemize}
-     	\item[-]  {\normalsize \lr{‌Immediate: }}
-     	بالاترین حاات اطمینان است که نشان می‌دهد دستگاه بسیار به 
+     	\item[-]  {\normalsize \lr{‌Immediate}:}
+     	بالاترین حالت اطمینان است که نشان می‌دهد دستگاه بسیار به 
      	 {\normalsize \lr{‌Beacon}}
      	 نزدیک می‌باشد.
-     	\item[-]  {\normalsize \lr{‌Near: }}
+     	\item[-]  {\normalsize \lr{‌Near }:}
    دستگاه با یک دیدی واضح نسبت به 
     {\normalsize \lr{‌Beacon}}
     قرار دارد، فاصله‌ی مجاورت حدودا ۱ تا ۳ متر است.  
-     	\item[-] {\normalsize \lr{‌Far: }}
+     	\item[-] {\normalsize \lr{‌Far}:}
      	این وضعیت نشان می‌دهد که یک دستگاه
      	 {\normalsize \lr{‌Beacon}}
-     	 قابل تشخیص است ، اما اطمینان در دقت برای تعیین نزدیکی آن خیلی کم است. نکته‌ی مهم در این جا این است که این وضعیت نشان نمی‌دهد که دستگاه از لحاظ فیزیکی به 
+     	 قابل تشخیص است،  اما اطمینان در دقت برای تعیین نزدیکی آن خیلی کم است. نکته‌ی مهم در این جا این است که این وضعیت نشان نمی‌دهد که دستگاه از لحاظ فیزیکی به 
      	  {\normalsize \lr{‌iBeacon}}
      	  نزدیک نمی‌باشد.  
-     	\item[-] {\normalsize \lr{‌Unknown: }}
+     	\item[-] {\normalsize \lr{‌Unknown}:}
      	مجاورت نسبت به 
      	 {\normalsize \lr{‌Beacon}}
-     	 قابل تشخیص نیست. این وضعیت ممکن است نشان دهنده‌ی این امر باشد که محدوده‌یابی شروع شده است اما معیارها برای تشخیص مقدار مجاورت کافی نیستند. 
+     	 قابل تشخیص نیست. این وضعیت ممکن است نشان دهنده‌ی این امر باشد که محدوده‌یابی شروع شده است، اما معیارها برای تشخیص مقدار مجاورت کافی نیستند. 
      \end{itemize}
     
     \subsection{محدودیت‌های فیزیکی}
@@ -2434,15 +2447,15 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
          	       	  {\normalsize \lr{‌BLE}}
      استفاده می‌کنند. 
           	  {\normalsize \lr{‌BLE}}
-     بر اساس فرکانس 
+     از فرکانس 
           	  {\normalsize \lr{‌2.4 Hz}}
-          	   می‌باشد، بهمین علت توسط موانع فیزیکی همچون دیوار، در یا دیگر ساختار‌های فیزیکی تحت‌تأثیر اثر میرایی یا تضعیف قرار می‌گیرد. فرکانس 
+          	   استفاده می‌کند، بهمین علت توسط موانع فیزیکی همچون دیوار، در یا دیگر ساختار‌های فیزیکی تحت‌تأثیر اثر میرایی یا تضعیف قرار می‌گیرد. فرکانس 
           	        	  {\normalsize \lr{‌2.4 Hz}} 
-  همچنان می‌تواند تحت‌تأثر آب قرار بگیرد، بنابراین برن انسان نیز بر ضعف سیگنال‌ها تأثیر خواهند گذاشت. 
-  اطلاع از موانع موجود برای سیگنال‌‌ها بدین دلیل مهم است که، این موانع بر روی قدرت سیگنال تأثیر مستقیم می‌گذارند، بنابراین دستگاه 
+  همچنان می‌تواند در معرض آب قرار بگیرد، بنابراین بدن انسان نیز بر ضعف سیگنال‌ها تأثیر خواهند گذاشت. 
+  اطلاع از موانع موجود برای سیگنال‌‌ها بدین دلیل مهم است که، این موانع بر روی قدرت سیگنال تأثیر مستقیم می‌گذارند،   بنابراین دستگاه 
        	  {\normalsize \lr{‌iOS}}
-       	  سیگنال‌های ضعیف‌تری را برای تشخیص مجاورت دریافت می‌کنند.        	        	     	       	  
-\cite{ibeacover}
+       	  سیگنال‌های ضعیف‌تری را برای تشخیص مجاورت دریافت می‌کنند  	        	     	       	  
+\cite{ibeacover}.
    
 \section{برنامه‌نویسی در {\normalsize \lr{‌iOS}}}
 	برای برنامه نویسی در محیط 
@@ -2494,7 +2507,7 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 			 			       	\LTRfootnote{Life Cycle}
 	نرم‌افزار می‌باشد. سیستم همچنین موردی از کلاس
 			{\normalsize \lr{‌AppDelegate}}	
-می‌سازد و آن‌ را به شیء نرم‌افزر مقرر می‌کند. در نهایت سیستم نرم‌افزار را اجرا می‌کند. 
+می‌سازد و آن‌ را به شیء نرم‌افزار مقرر می‌کند. در نهایت سیستم نرم‌افزار را اجرا می‌کند. 
 
 کلاس
 			{\normalsize \lr{‌AppDelegate}}	
@@ -2521,18 +2534,17 @@ func applicationWillTerminate(_ application: UIApplication)
 \subsection{	{\small \lr{‌Storyboard}}}
 {\normalsize \lr{‌Storyboard}}
 یک نمایش بصری از رابط کاربری نرم‌افزار می‌باشد، که صفحات مختلف، محتوی و انتقال بین صفحات را نمایش می‌دهد. 
-برنامه‌نویس می‌تواند ازین راه تغییرات بر رابط کاربری نرم‌افزار را ایجاد کند و نتایج را همان لحظه مشاهده کند.  	
+برنامه‌نویس می‌تواند از این راه تغییرات بر رابط کاربری نرم‌افزار را ایجاد کند و نتایج را همان لحظه مشاهده کند.  	
 \section{الگوی طراحی {\small \lr{‌MVC}}}\label{mvc}
 همانند بسیاری از پلتفورم‌های نرم‌افزاری که از الگوی طراحی
 						       	\LTRfootnote{Design Pattern}
 {\normalsize \lr{‌MVC}}
 استفاده می‌کنند، در برنامه‌نویسی 
 {\normalsize \lr{‌iOS}}
-نیز از این الگوی طراحی استفاده‌‌شده است. الگوی 
+نیز از این الگوی طراحی استفاده ‌‌شده است. الگوی 
 {\normalsize \lr{‌MVC}}
 شامل، 
-{\normalsize \lr{‌M‌odel}}
-،
+{\normalsize \lr{‌M‌odel}}،
 {\normalsize \lr{‌View}} و
 {\normalsize \lr{‌Controller}}
 است.  در این سبک از طراحی 
@@ -2547,13 +2559,19 @@ func applicationWillTerminate(_ application: UIApplication)
 {\normalsize \lr{View}} ها 
   رابط کاربری را نشان می‌دهند و محتوای نمایشی نرم‌افزار را می‌سازند. با پاسخ به اقدامات کاربران و شکل دادن محتوای 
   {\normalsize \lr{View}} 
-  ها از مدل داده ، 
+  ها از مدل داده، 
   {\normalsize \lr{Controller}} 
   ها بعنوان درگاهی میان 
   {\normalsize \lr{View}} 
   و 
   {\normalsize \lr{Model}} 
-  عمل می‌کنند.
+  عمل می‌کنند. 
+  شکل 
+  \ref{fig:mvcpattern-2}
+  ارتباط بین اجزای مختلف مدل 
+  {\normalsize \lr{‌MVC}}
+  را نشان می‌دهد.
+  
   \begin{figure}[h]
   	\centering
   	\includegraphics[height=5cm]{images/MVCPattern-2}
@@ -2568,7 +2586,7 @@ func applicationWillTerminate(_ application: UIApplication)
     {\normalsize \lr{View}} ها 
     محتوا را به کاربر نمایش می‌دهند.
       {\normalsize \lr{View}} 
-      ها رفتارهای مختلفی دارند از جمله‌ی نمایش خودشان و نشان‌دادن عکس‌العمل به کاربر. 
+      ها رفتارهای مختلفی دارند از جمله‌ی نمایش واسط‌های کاربری و نشان‌دادن عکس‌العمل به کاربر. 
 در 
   {\normalsize \lr{iOS}} 
   تمام اشیاء 
@@ -2600,7 +2618,7 @@ func applicationWillTerminate(_ application: UIApplication)
    می‌تواند رفتار 
           {\normalsize \lr{ViewController}}  
           را تغییر دهد.       
-    یک شیئ از کلاس
+    یک شیءای از کلاس
     {\normalsize \lr{‌ViewController}}
      به همراه یک سری از توابع به منظور مدیریت سلسله مراتب 
      {\normalsize \lr{‌View}} ‌
@@ -2613,6 +2631,11 @@ func applicationWillTerminate(_ application: UIApplication)
      این مسأله که چه زمانی این توابع فراخوانی می‌شوند برای تشخیص رفتار 
      {\normalsize \lr{‌ViewController}} 
      حائز اهمیت هستند. 
+     شکل 
+     \ref{fig:vclifecycle}
+     چرخه‌ی حیات یک 
+          {\normalsize \lr{‌ViewController}} 
+     و فراخوانی توابع مربوطه را نشان می‌دهد.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[height=10cm]{images/VClifecycle}
@@ -2640,7 +2663,7 @@ func applicationWillTerminate(_ application: UIApplication)
 	{\normalsize \lr{‌View}}
 	الزاما، بار اولی که 
 	{\normalsize \lr{‌ViewController}}
-	مقداردهی اولیه می‌شود ساخته نمی‌شود. 
+	مقداردهی اولیه می‌شود،   ساخته نمی‌شود. 
 	
 	\item[ ]
 	{\normalsize \lr{‌viewWillAppear()}}- 
@@ -2666,9 +2689,11 @@ func applicationWillTerminate(_ application: UIApplication)
 	{\normalsize \lr{‌ViewController}}،
 	به سلسله مراتب 
 	{\normalsize \lr{‌View}}
-	نرم‌افزار اضافه شود، این تابع فراخوانی می‌شود. از این تابع به منظور انجام اعمالی استفاده می‌شود که ، می‌خواهیم به محض نشان دادن 
+	نرم‌افزار اضافه شود، این تابع فراخوانی می‌شود. از این تابع به منظور انجام اعمالی استفاده می‌شود که،  می‌خواهیم به محض نشان دادن 
 	{\normalsize \lr{‌View}}
-	انجام شوند. برای مثال واکاوی داده و یا نشان دادن یک انیمیشن. این تابع به سادگی نشان می‌دهد که 
+	انجام شوند. برای مثال واکاوی داده و یا نشان دادن یک 
+		{\normalsize \lr{‌Animation}}
+	. این تابع به سادگی نشان می‌دهد که 
 	{\normalsize \lr{‌View}}
 	مورد نظر به سلسله مراتب 
 	{\normalsize \lr{‌View}}
@@ -2701,9 +2726,9 @@ func applicationWillTerminate(_ application: UIApplication)
 		\end{verbatim}
 		
 	\end{latin}	
-	 پس از وارد کردن رابط نرم‌افزاری ، کلاس 
+	 پس از وارد کردن رابط نرم‌افزاری،  کلاس 
 	 {\normalsize \lr{‌AppDelegate}}
-	 می‌باید برای پیاده سازی توابع نماینده، از پروتکل 
+	 می‌باید برای پیاده‌سازی توابع کلاس نماینده، از پروتکل 
 		 {\normalsize \lr{‌CLLocationManagerDelegate}}
 	پیروی کند. سپس نیاز به یک شیء برای  تعریف نماینده و یک شیء برای مشخص کردن منطقه برای 
 					{\normalsize \lr{‌iBeacon}} 
@@ -2770,7 +2795,7 @@ func locationManager(CLLocationManager, didEnterRegion: CLRegion)
 func locationManager(CLLocationManager, didExitRegion: CLRegion)
 	\end{verbatim}
 \end{latin}	
-	پیاده سازی این دو تابع به شکل زیر می‌باشد: 
+	پیاده‌سازی این دو تابع به شکل زیر می‌باشد: 
 	\begin{latin}
 		\begin{verbatim}
  func locationManager(_ manager: CLLocationManager, 
@@ -2813,7 +2838,7 @@ center.add(request, withCompletionHandler: nil)
 		{\normalsize \lr{‌Beacon}}
 		می‌شود، اطلاعی به کاربر به معنی ورود وی به محدوده‌ی 
 			{\normalsize \lr{‌Beacon}}
-			داده می‌شود و به همین شکل زمانی که کاربر از محدوده‌ی 
+			داده می‌شود. به همین شکل زمانی که کاربر از محدوده‌ی 
 				{\normalsize \lr{‌Beacon}}
 				خارج می‌شود اعلان دیگری ارسال می‌شود. 
 				
@@ -2821,8 +2846,8 @@ center.add(request, withCompletionHandler: nil)
 برای اطلاع از ورود و خروج کاربران از
 						{\normalsize \lr{‌Monitoring}}
 	استفاده شد. اما تابع مربوطه اطلاعات کافی مربوط به 
-			{\normalsize \lr{‌UUID}}
-			،		{\normalsize \lr{‌Major}}
+			{\normalsize \lr{‌UUID}}،
+					{\normalsize \lr{‌Major}}
 			و 
 					{\normalsize \lr{‌Minor}}
 		کشف شده را در اختیارمان قرار نمی‌دهد و به منظور بدست آوردن این مقادیر از 
@@ -2886,8 +2911,7 @@ dataTask.resume()
 در این این تابع یک درخواست 
 						{\normalsize \lr{‌POST}}
 	به سرور به منظور پیدا کردن مکان فرستاده می‌شود، سه مقدار 
-							{\normalsize \lr{‌UUID}}
-												،
+							{\normalsize \lr{‌UUID}}،
 																		{\normalsize \lr{‌Major}}
 																		و 
 																								{\normalsize \lr{‌Minor}}
@@ -2914,7 +2938,7 @@ dataTask.resume()
 										{\normalsize \lr{‌URLSessionDelegate }}
 										و 
 									{\normalsize \lr{‌URLSessionDataDelegate}}
-				تبعیت می‌کند، و سپس به عنوان نماینده‌ تعریف می‌شود.
+				تبعیت کرده، و سپس به عنوان نماینده‌ تعریف می‌شود.
 	تابعی که برای دریافت پیام ارسالی از طرف سرور باید پیاده‌سازی شود، به صورت زیر می‌باشد: 
 	\begin{latin}
 		\begin{verbatim}
@@ -2970,9 +2994,9 @@ dataTask.resume()
 		\end{verbatim}
 		
 	\end{latin}	
-	این تابع مقادر ارسالی توسط سرور را دریافت می‌کند و آن‌ها را با استفاده از تجزیه گر 
+	این تابع مقادر ارسالی توسط سرور را دریافت می‌کند،  آن‌ها را با استفاده از تجزیه گر 
 								{\normalsize \lr{‌JSON}}
-								تجزیه می‌کند و اطلاعات را در 
+								تجزیه نموده و در پایان اطلاعات را در 
 															{\normalsize \lr{‌Userdefaults}}
 															ذخیره می‌کند. 
 
@@ -2981,11 +3005,11 @@ dataTask.resume()
 	{\normalsize \lr{‌UserDefaults}}
 	یک رابط برنامه‌نویسی برای تعامل با سیستم پیش‌فرض‌ها 
 							       	\LTRfootnote{system defaults}
-	فراهم می‌کند. سیستم پیش‌فرض‌ها به یک نرم‌افزار اجازه می‌دهد تا خودش را مطابق با تنظیمات کاربر شخصی سازی کند. نرم‌افزار چنین تنظیماتی را با مقرر کردن مقادیری به یک مجموعه‌ای از پارامترها در پایگاه‌داده‌ی پیش‌فرض‌ها ذخیره می‌کند. این پارامتر‌ها به مقادیر پیش‌فرض منتسب می‌شوند به این دلیل که برای تعیین کردن وضعیت اولیه‌ی نرم‌افزار در زمان شروع استفاده می‌شوند. 
+	فراهم می‌کند. سیستم پیش‌فرض‌ها به یک نرم‌افزار اجازه می‌دهد تا خودش را مطابق با تنظیمات کاربر شخصی‌سازی کند. نرم‌افزار چنین تنظیماتی را با مقرر کردن مقادیری به یک مجموعه‌ای از پارامترها در پایگاه‌داده‌ی پیش‌فرض‌ها ذخیره می‌کند. این پارامتر‌ها به مقادیر پیش‌فرض منتسب می‌شوند به این دلیل که برای تعیین کردن وضعیت اولیه‌ی نرم‌افزار در زمان شروع استفاده می‌شوند. 
 	
-در پروژه از مقادیر پیش‌فرض به منظور ذخیره‌ی مقادری احراز هویت و وضعیت نرم‌افزار مورد استفاده قرار گرفته است. 
+در پروژه از مقادیر پیش‌فرض به منظور ذخیره‌ی مقادیر احراز هویت و وضعیت نرم‌افزار مورد استفاده قرار گرفته است. 
 
-نحوه‌ی استفاده از مقادیر پیش‌فرض بدین شکل است که ابتدا یک مورد از مقادیر پیش‌فرض گرفته می‌شود :
+نحوه‌ی استفاده از مقادیر پیش‌فرض بدین شکل است که ابتدا یک مورد از مقادیر پیش‌فرض گرفته می‌شود:
 \begin{latin}
 	\begin{verbatim}
 let defaults = UserDefaults.standard	
@@ -3013,9 +3037,8 @@ defaults.bool(forKey: "storestate")
 	همانظور که در بخش 
 	\ref{mvc}
 	ذکر شد، یکی از مؤلفه‌های الگوی طراحی 
-	{\normalsize \lr{‌MVC}}
-	، 
-	{\normalsize \lr{‌Model}} ها 
+	{\normalsize \lr{‌MVC}}،
+	{\normalsize \lr{‌Model}}ها 
 	می‌باشند که وظیفه‌ی ذخیره‌ی اطلاعات کاربر و نگهداری وضعیت نرم‌افزار را بر عهده دارند. 
 
 در پروژه برای ذخیره‌سازی کارت‌های بانکی نیازمند 
@@ -3102,10 +3125,8 @@ exprdate,cvv2: cvv2,bankName: bankname)
 				       	{\normalsize \lr{‌encode(with : NSCoder)}}
 	به منظور کدگذاری داده، پیاده‌سازی می‌شود و به منظور واکاوی تابع مقداردهی اولیه‌ی 
 					       	\LTRfootnote{init method}		
-	مناسب به منظور کدگشایی داده‌ها پیاده می‌شود. 
+	مناسب به منظور کدگشایی داده‌ها پیاده‌سازی می‌شود. 
 
-	
-	
 	
 	
 	
