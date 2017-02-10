@@ -8,9 +8,17 @@
    ]{geometry}
 \usepackage{titlesec}
 \usepackage{subfigure}
+\usepackage{afterpage}
 %\usepackage[perpage]{footmisc}
 
 \usepackage[extrafootnotefeatures]{xepersian}
+
+
+\newcommand\blankpage{%
+	\null
+	\thispagestyle{empty}%
+	\newpage
+}
 
 \settextfont{B Nazanin}
 \linespread{1.3}
@@ -653,7 +661,8 @@
 \end{enumerate}
 		   
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		
+
+
 		\chapter{تکنولوژی {\Large\lr{Tokenisation}} و زیرساخت‌ها }\label{tokenisation}
 	در این فصل به بررسی تکنولوژی‌ها و زیرساخت‌های  مورد نیاز در پرداخت‌های امروزی همچون 
 	   		 {\normalsize\lr{Tokenisation}} , 
@@ -1061,8 +1070,11 @@
 					{\normalsize \lr{HCE}}
 		و استفاده از فضای ابری این محدودیت برای ذخیره‌سازی اطلاعات کارت‌ها رفع می‌شود و تعداد کارت بیشتری می‌تواند مورد پشتیبانی قرار بگیرد
 	\cite{hcese}			.
+	
+	
 
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
 		\chapter{بررسی نحوه‌ی کار سرویس‌های   {\Large\lr{Apple Pay} }  و   {\Large\lr{Android Pay} }}\label{comparison}
 		در این فصل به نحوه‌ی کار سرویس 
 							{\normalsize \lr{Apple Pay}} 
@@ -1565,7 +1577,7 @@
 
 		
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		
+		\afterpage{\blankpage}
 		\chapter{طراحی و پیاده‌سازی نرم‌افزار پرداخت سمت سرور}\label{serverimplementation}
 در این فصل پیاده‌سازی نرم‌افزار سمت سرور 
  مورد بررسی قرار خواهد گرفت و توضیح کلی در مورد تکنولوژی‌های مورد استفاده در پیاده‌سازی همچون 
@@ -2242,7 +2254,7 @@ public void setIdstore(Integer idstore) {this.idstore = idstore;}
 	 
 
 	
-		
+		\afterpage{\blankpage}
 		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		\chapter{طراحی و پیاده‌سازی نرم‌افزار پرداخت سمت کلاینت}\label{clientimplementation}
 در این فصل ابتدا به توضیح تکنولوژی‌های استفاده شده و سپس به نحوه‌ی عملکرد،  پیاده‌سازی و چگونگی استفاده نرم‌افزار از تکنولوژی‌ها بررسی خواهد شد.
@@ -3250,16 +3262,15 @@ exprdate,cvv2: cvv2,bankName: bankname)
 	به منظور کدگذاری داده، پیاده‌سازی می‌شود و به منظور واکاوی تابع مقداردهی اولیه‌ی 
 					       	\LTRfootnote{init method}		
 	مناسب به منظور کدگشایی داده‌ها پیاده‌سازی می‌شود. 
-	
-	
-	
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\newpage
 	\def\bibname{مراجع}
 	\bibliographystyle{ieeetr}
 	\bibliography{references}
 	
 	\newpage
+	
+	
 	
 	\begin{latin}
 		
